@@ -20,8 +20,16 @@
 - Mise en place GitHub : dépôt distant, `.gitignore`, identité Git, poussée
   initiale des documents de suivi (détail dans `GITHUB.md`).
 - Partie 8 (documentation) : `README.md`, `EQUIPE.md`, `CONTRIBUTIONS.md`,
-  `GITHUB.md`, `PRESENTATION.md`.
+  `GITHUB.md`, `PRESENTATION.md` — `README.md` réécrit en version simple le
+  03/10/2026 (commit `52a3ba5`) pour permettre au membre B de démarrer seul.
+- Construction du socle du projet (fichiers 1 à 5 du tableau ci-dessous),
+  chacun validé avant d'être poussé.
 - Questions techniques : à attribuer lors de la répartition.
+
+**Prêt pour le membre B** : le clone, `run-sbt.cmd compile` et toutes les
+commandes Git décrites dans `GITHUB.md` et `README.md` ont été testés sur le
+poste du membre A ; il ne manque que le point d'entrée `MainApp` (fichier 6)
+puis l'écriture des questions.
 
 #### Fichiers créés par le membre A (cadence : un seul fichier à la fois, 1 fichier = 1 commit)
 
