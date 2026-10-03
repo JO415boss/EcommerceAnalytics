@@ -31,10 +31,14 @@
 | 2 | `project/plugins.sbt` | plugin sbt-assembly (livraison d'un JAR unique) | 03/10/2026 | `2948b1c` |
 | 3 | `build.sbt` | socle : Scala 2.13.12, Spark 3.5.1, Typesafe Config, exclusions assembly | 03/10/2026 | `51c2779` |
 | 4 | `run-sbt.cmd` | lance sbt avec `HADOOP_HOME` (natives Windows) | 03/10/2026 | `f911d76` |
+| 5 | `src/main/resources/application.conf` | chemins d'entrée `data/...` et sortie `output/` (Q7.1) | 03/10/2026 | `76c4520` |
 
-À venir dans cet ordre, un fichier à la fois :
-`src/main/resources/application.conf` (Q7.1), point d'entrée `MainApp`. Chaque
+À venir dans cet ordre, un fichier à la fois : point d'entrée `MainApp`. Chaque
 fichier sera ajouté au tableau avec son commit dès qu'il sera poussé.
+
+Validation du fichier 5 : les 4 chemins d'entrée référencés
+(`data/transactions.csv`, `data/users.json`, `data/products.parquet`,
+`data/merchants.csv`) ont été vérifiés existants sur le poste.
 
 Validation : le fichier 3 a été corrigé (`f.data.getName` au lieu de `f.getName`,
 type `Attributed[File]` de sbt-assembly, commit `cc07aeb`) puis **`sbt compile`
