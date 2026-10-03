@@ -26,7 +26,7 @@ lazy val root = (project in file("."))
     assembly / assemblyExcludedJars := {
       val cp = (assembly / fullClasspath).value
       cp.filter { f =>
-        val n = f.getName
+        val n = f.data.getName
         n.startsWith("spark-") || n.startsWith("hadoop-") || n.startsWith("scala-library")
       }
     },
