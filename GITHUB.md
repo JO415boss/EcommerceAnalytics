@@ -45,14 +45,24 @@ git config --global user.email "sadiojoseph4@gmail.com"   :: votre vraie adresse
 
 Puis **l'un des deux cas** :
 
-- **Poste déjà avec le projet** (clone local existant) :
+- **Poste déjà avec le projet** (dossier local existant, pas encore relié à
+  GitHub — *cas du poste du membre A, déjà exécuté et vérifié le 03/10/2026*) :
 
 ```bat
 cd "C:\Users\pc\Documents\EcommerceAnalytics"
 git remote add origin https://github.com/JO415boss/EcommerceAnalytics.git
+git add <vos-fichiers>                          :: 1er commit local SANS LEQUEL le pull échoue
+git commit -m "Nom : travaux déjà présents sur le poste"
 git fetch origin
 git pull origin main --no-rebase --allow-unrelated-histories
+git push -u origin main
 ```
+
+> **Déjà fait ici** : sur le poste du membre A, `origin` est déjà déclaré
+> (`git remote -v`), l'historique local et distant sont fusionnés et synchronisés
+> sur `main` — relancer ce bloc provoquerait `fatal: remote origin already exists`,
+> c'est normal : passez directement au cycle de la section 3. Règle à retenir :
+> **toujours `git add` + `git commit` avant un premier `git pull`**.
 
 - **Nouveau poste** (projet pas encore récupéré) :
 
