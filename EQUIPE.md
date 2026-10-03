@@ -2,7 +2,7 @@
 
 | Nom    | Prénom | Code étudiant | Rôle | Questions traitées |
 |--------|--------|---|---|---|
-| SADIO | Joseph Niaga (Joseph N) | à compléter | Membre A – mise en place du dépôt GitHub, documentation | Partie 8 ; autres questions à attribuer |
+| SADIO | Joseph Niaga (Joseph N) | 1510384 | Membre A – mise en place du dépôt GitHub, documentation | Partie 8 ; autres questions à attribuer |
 | SECK | Mamour | à compléter | Membre B | à attribuer |
 | SYLVA | Frederic | à compléter | Membre C | à attribuer |
 
