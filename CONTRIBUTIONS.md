@@ -23,6 +23,17 @@
   `GITHUB.md`, `PRESENTATION.md`.
 - Questions techniques : à attribuer lors de la répartition.
 
+#### Fichiers créés par le membre A (cadence : un seul fichier à la fois, 1 fichier = 1 commit)
+
+| # | Fichier | Rôle (par ordre d'urgence) | Date | Commit |
+|---|---|---|---|---|
+| 1 | `project/build.properties` | épingle sbt 1.9.9 pour tous les membres | 03/10/2026 | `d301bba` |
+
+À venir dans cet ordre, un fichier à la fois : `project/plugins.sbt` (plugin
+sbt-assembly), `build.sbt`, `run-sbt.cmd`, `src/main/resources/application.conf`
+(Q7.1), point d'entrée `MainApp`. Chaque fichier sera ajouté au tableau avec son
+commit dès qu'il sera poussé.
+
 ### Membres B et C
 
 - Comptes GitHub : SECK Mamour = `mamourseck179-maker`, SYLVA Frederic = `sylvafrederic00-lang`.
