@@ -28,11 +28,12 @@
 | # | Fichier | Rôle (par ordre d'urgence) | Date | Commit |
 |---|---|---|---|---|
 | 1 | `project/build.properties` | épingle sbt 1.9.9 pour tous les membres | 03/10/2026 | `d301bba` |
+| 2 | `project/plugins.sbt` | plugin sbt-assembly (livraison d'un JAR unique) | 03/10/2026 | `2948b1c` |
+| 3 | `build.sbt` | socle : Scala 2.13.12, Spark 3.5.1, Typesafe Config, exclusions assembly | 03/10/2026 | `51c2779` |
 
-À venir dans cet ordre, un fichier à la fois : `project/plugins.sbt` (plugin
-sbt-assembly), `build.sbt`, `run-sbt.cmd`, `src/main/resources/application.conf`
-(Q7.1), point d'entrée `MainApp`. Chaque fichier sera ajouté au tableau avec son
-commit dès qu'il sera poussé.
+À venir dans cet ordre, un fichier à la fois : `run-sbt.cmd`,
+`src/main/resources/application.conf` (Q7.1), point d'entrée `MainApp`. Chaque
+fichier sera ajouté au tableau avec son commit dès qu'il sera poussé.
 
 ### Membres B et C
 
