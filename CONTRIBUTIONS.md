@@ -35,6 +35,11 @@
 `src/main/resources/application.conf` (Q7.1), point d'entrée `MainApp`. Chaque
 fichier sera ajouté au tableau avec son commit dès qu'il sera poussé.
 
+Validation : le fichier 3 a été corrigé (`f.data.getName` au lieu de `f.getName`,
+type `Attributed[File]` de sbt-assembly, commit `cc07aeb`) puis **`sbt compile`
+est passé avec succès le 03/10/2026** — `build.sbt`, `project/plugins.sbt` et
+`project/build.properties` sont donc validés ensemble.
+
 ### Membres B et C
 
 - Comptes GitHub : SECK Mamour = `mamourseck179-maker`, SYLVA Frederic = `sylvafrederic00-lang`.
