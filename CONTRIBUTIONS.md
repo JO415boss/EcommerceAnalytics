@@ -25,8 +25,11 @@
 
 ### Membres B et C
 
-- À déclarer ici dès leur arrivée : `git clone https://github.com/JO415boss/EcommerceAnalytics.git`
-  puis `git pull origin main` avant de commencer.
+- Comptes GitHub : SECK Mamour = `mamourseck179-maker`, SYLVA Frederic = `sylvafrederic00-lang`.
+- Invitation en collaborateur (accès écriture) envoyée le 03/10/2026 ;
+  à accepter depuis la boîte de réception GitHub ou la page des invitations du dépôt.
+- Une fois l'invitation acceptée : `git clone https://github.com/JO415boss/EcommerceAnalytics.git`
+  puis `git pull origin main` avant de commencer, et déclarer leur charge ici.
 
 ## Décisions techniques du groupe
 

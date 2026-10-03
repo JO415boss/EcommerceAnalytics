@@ -3,8 +3,14 @@
 | Nom    | Prénom | Code étudiant | Rôle | Questions traitées |
 |--------|--------|---|---|---|
 | SADIO | Joseph Niaga (Joseph N) | à compléter | Membre A – mise en place du dépôt GitHub, documentation | Partie 8 ; autres questions à attribuer |
+| SECK | Mamour | à compléter | Membre B | à attribuer |
+| SYLVA | Frederic | à compléter | Membre C | à attribuer |
 
-Les membres B et C sont à déclarer dans ce tableau dès leur arrivée.
+Comptes GitHub des membres : **A** = `JO415boss`, **B** = `mamourseck179-maker`,
+**C** = `sylvafrederic00-lang`.
+
+Invitations en collaborateur (accès écriture) envoyées le 03/10/2026 à B et C ;
+elles restent valables jusqu'à leur acceptation sur github.com.
 
 ## Mise en place Git (membre A – 03/10/2026)
 
