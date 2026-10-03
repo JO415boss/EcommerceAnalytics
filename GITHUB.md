@@ -1,11 +1,15 @@
 # Travail sur GitHub – ce que chacun doit faire et les commandes
 
 Dépôt distant du groupe : `https://github.com/JO415boss/EcommerceAnalytics.git`
-(à remplacer par l'URL réelle du dépôt créé par le groupe ; elle est facultative
-au sujet mais recommandée pour la mise en commun – Question 0.2).
+(dépôt créé et publié ; branche principale : **main**).
+
+> **État au 03/10/2026 (membre A)** : dépôt initialisé, `.gitignore` en place,
+> documents de suivi poussés sur `main`. Les autres membres n'ont plus qu'à
+> cloner (section 2, « Nouveau poste ») puis à suivre le cycle de la section 3.
 
 | Membre | Nom | Questions / périmètre | Fichiers qu'il pousse |
 |---|---|---|---|
+| A | Joseph N SADIO | Mise en place Git (dépôt, `.gitignore`, poussée initiale) + Partie 8 | ses fichiers modifiés uniquement |
 | Collectif | — | Partie 8 (documentation) | `CONTRIBUTIONS.md`, `EQUIPE.md`, `README.md`, `GITHUB.md` |
 
 Règle d'or pour éviter les conflits : **chacun ne modifie que ses propres fichiers**
@@ -16,14 +20,14 @@ et `git push` une fois le travail committé.
 
 ## 1. Une seule fois – créer et publier le dépôt
 
-Sur [github.com](https://github.com) : **New repository** → nom `EcommerceAnalytics`,
-sous forme **Private** ou **Public**, **sans** README initial (le projet existe déjà).
+✅ **Déjà réalisé** le 03/10/2026 par le membre A : le dépôt
+`https://github.com/JO415boss/EcommerceAnalytics.git` existe (branche `main`).
 
 Ensuite, depuis la racine du projet (`C:\Users\pc\Documents\EcommerceAnalytics`) :
 
 ```bat
-git remote add origin https://github.com/<ORG>/EcommerceAnalytics.git
-git push -u origin master
+git remote add origin https://github.com/JO415boss/EcommerceAnalytics.git
+git fetch origin
 ```
 
 Puis inviter les collaborateurs : sur GitHub → **Settings → Collaborators → Add people**.
@@ -33,8 +37,8 @@ Puis inviter les collaborateurs : sur GitHub → **Settings → Collaborators �
 **Sur chaque poste**, identifier l'auteur des commits (Question 0.2 du sujet).
 
 ```bat
-git config --global user.name  "Nom & Prenom"
-git config --global user.email "votre.adresse@exemple.fr"
+git config --global user.name  "Joseph N SADIO"          :: exemple : membre A
+git config --global user.email "sadiojoseph4@gmail.com"   :: votre vraie adresse
 ```
 
 (Adaptez chaque adresse à la vraie adresse e-mail du membre.)
@@ -45,16 +49,16 @@ Puis **l'un des deux cas** :
 
 ```bat
 cd "C:\Users\pc\Documents\EcommerceAnalytics"
-git remote add origin https://github.com/<ORG>/EcommerceAnalytics.git
+git remote add origin https://github.com/JO415boss/EcommerceAnalytics.git
 git fetch origin
-git push -u origin master
+git pull origin main --no-rebase --allow-unrelated-histories
 ```
 
 - **Nouveau poste** (projet pas encore récupéré) :
 
 ```bat
 cd "C:\Users\pc\Documents"
-git clone https://github.com/<ORG>/EcommerceAnalytics.git
+git clone https://github.com/JO415boss/EcommerceAnalytics.git
 cd EcommerceAnalytics
 ```
 
@@ -71,7 +75,7 @@ git config user.email
 cd "C:\Users\pc\Documents\EcommerceAnalytics"
 
 :: 1. toujours synchroniser AVANT de commencer
-git pull origin master
+git pull origin main
 
 :: 2. travailler uniquement sur ses propres fichiers (voir tableau ci-dessus)
 
@@ -86,7 +90,7 @@ git add <fichier-modifié>                        :: un seul fichier à la fois
 git commit -m "Nom : description du changement"
 
 :: 6. publier sur GitHub
-git push origin master
+git push origin main
 ```
 
 Messages de commit attendus :
@@ -99,7 +103,7 @@ Messages de commit attendus :
 
 ```bat
 git log --oneline                          :: historique complet
-git log --oneline --author="Votre Nom"     :: commits d'un auteur
+git log --oneline --author="Joseph N SADIO"  :: commits d'un auteur
 git log --stat                            :: détail des fichiers par commit
 ```
 
@@ -107,8 +111,9 @@ Ces commandes servent de preuve pour le journal de contribution (`CONTRIBUTIONS.
 
 ## 5. À ne JAMAIS pousser sur GitHub
 
-Déjà exclus par `.gitignore` : `target/`, `project/target/`, `.idea/`, `data/`,
-`output/`, `*.log`. Ne jamais forcer l'ajout de ces dossiers :
+`.gitignore` créé le 03/10/2026 par le membre A ; il exclut déjà : `target/`,
+`project/target/`, `.idea/`, `data/`, `output/`, `*.log`. Ne jamais forcer
+l'ajout de ces dossiers :
 
 ```bat
 git status --short     :: ne doit jamais afficher target/ ni output/
@@ -117,12 +122,12 @@ git status --short     :: ne doit jamais afficher target/ ni output/
 ## 6. Résolution des conflits (si `git push` est refusé)
 
 ```bat
-git pull origin master --no-rebase
+git pull origin main --no-rebase
 :: si Git signale un conflit : ouvrir le fichier, choisir la bonne version,
 :: puis :
 git add <fichier_conflit>
 git commit -m "Membre X : résolution de conflit sur <fichier>"
-git push origin master
+git push origin main
 ```
 
 En pratique, la règle « chacun touche uniquement à ses fichiers » rend les conflits

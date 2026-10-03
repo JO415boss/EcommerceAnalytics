@@ -15,7 +15,18 @@
 
 ## Charge de travail
 
-Aucune charge déclarée : les contributions des trois membres ont été retirées du projet.
+### Membre A – Joseph N SADIO (depuis le 03/10/2026)
+
+- Mise en place GitHub : dépôt distant, `.gitignore`, identité Git, poussée
+  initiale des documents de suivi (détail dans `GITHUB.md`).
+- Partie 8 (documentation) : `README.md`, `EQUIPE.md`, `CONTRIBUTIONS.md`,
+  `GITHUB.md`, `PRESENTATION.md`.
+- Questions techniques : à attribuer lors de la répartition.
+
+### Membres B et C
+
+- À déclarer ici dès leur arrivée : `git clone https://github.com/JO415boss/EcommerceAnalytics.git`
+  puis `git pull origin main` avant de commencer.
 
 ## Décisions techniques du groupe
 
