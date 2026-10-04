@@ -180,6 +180,26 @@ git push -u origin feature/sujet-q3
 Puis sur GitHub : **Compare & pull request** → le relecteur désigné dans `CONTRIBUTIONS.md`
 relit le diff et clique sur **Merge pull request**.
 
+### 8. Contrôle automatique de la documentation (hook local, facultatif)
+
+Les tableaux Markdown tronqués sont invisibles à la relecture rapide et donnent une
+impression de travail bâclé. Le dépôt fournit donc un vérificateur versionné :
+
+```bat
+powershell -NoProfile -ExecutionPolicy Bypass -File tools\check-markdown-tables.ps1
+```
+
+Il contrôle tous les fichiers `*.md` suivis par Git (colonnes cohérentes dans chaque
+tableau, tuyaux échappés `\|` correctement ignorés) et renvoie le code de sortie `1` en
+cas d'anomalie. Pour l'exécuter automatiquement **avant chaque commit**, installer le
+hook local (fichier propre à chaque poste, jamais versionné) :
+
+```bat
+powershell -NoProfile -ExecutionPolicy Bypass -File tools\install-git-hooks.ps1
+:: dans Git Bash, rendre le hook executable :
+chmod +x .git/hooks/pre-commit
+```
+
 
 ## Où lire quoi
 
@@ -188,6 +208,7 @@ relit le diff et clique sur **Merge pull request**.
 | `EQUIPE.md` | membres, rôles (Parties 1-7) et comptes GitHub |
 | `CONTRIBUTIONS.md` | répartition des questions, charge de travail, décisions techniques |
 | `PRESENTATION.md` | support de présentation utilisé pour la soutenance (Q8.1) |
+| `tools/` | outillage de qualité : `check-markdown-tables.ps1` (vérifie les tableaux Markdown), `install-git-hooks.ps1` (installe le hook `pre-commit`) |
 
 Le mode d'emploi Git du groupe n'est plus dans un fichier séparé : il constitue la
 section **« Travail sur GitHub »** ci-dessus (l'ancien `GITHUB.md` y a été fusionné le
