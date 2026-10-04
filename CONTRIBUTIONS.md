@@ -56,8 +56,13 @@ Chacun ne modifie que ses propres fichiers (règle anti-conflit du sujet) :
   La Partie 8 reste un livrable collectif.
 - Construction du socle du projet (fichiers 1 à 5 du tableau ci-dessous),
   chacun validé avant d'être poussé.
-- Heures travaillées : à compléter (obligatoire avant la remise).
-- Difficultés rencontrées : à compléter.
+- Heures travaillées : vendredi 19h → dimanche 2h24 (amplitude ≈ 31 h ;
+  travail effectif estimé ≈ 8 h : sessions visibles dans `git log` du 03/10
+  16h24 au 04/10 02h07 UTC). Les commits et le push GitHub n'ont fonctionné
+  normalement qu'à partir de samedi.
+- Difficultés rencontrées : configuration GitHub (plus gros problème) —
+  identité des commits (`JO415boss` vs `Joseph N SADIO`, config globale vs
+  locale), premier push et synchronisation de `main` ; résolu le samedi.
 
 **Prêt pour le membre B** : le clone, `run-sbt.cmd compile` et toutes les
 commandes Git décrites dans `GITHUB.md` et `README.md` ont été testés sur le
