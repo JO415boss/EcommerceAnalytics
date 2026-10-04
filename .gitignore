@@ -16,3 +16,7 @@ logs/
 # analyses « 5 Pourquoi » et des questions du jury. Fichiers LOCAUX et
 # volontairement NON versionnés : jamais poussés, jamais dans l'archive ZIP.
 TRAVAIL_MEMBRE_*.md
+
+# Énoncé fourni par l'enseignant : conservé sur le poste pour référence, jamais
+# versionné ni inclus dans l'archive de rendu.
+Projet_Final_Spark_Scala_GROUPE_3.pdf
