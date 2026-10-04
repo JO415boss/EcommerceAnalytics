@@ -49,6 +49,13 @@ Quatre entrées dans `data/` : `transactions.csv`, `users.json`,
 
 - Chemins : `src/main/resources/application.conf` (`app.data.input.*`, `app.data.output`).
 - Sorties : `output/` ; `data/`, `output/` et `target/` sont ignorés par Git.
+- Convention imposée par le sujet (Q6.1) : chaque résultat est écrit **deux fois**,
+  `output/csv/<nom>/` (en-tête `true`, `coalesce(1)` pour les petits résultats) et
+  `output/parquet/<nom>/`, en mode `overwrite`. Seul le rapport de qualité est un
+  **fichier CSV unique** (`output/rapport_qualite_yyyymmdd.csv`). Ces écritures passent
+  toutes par `utils/DataFrameWriterUtils`, jamais réécrites au cas par cas.
+- Exécution modulaire (bonus Q6.2, membre C) : `MainApp` accepte un argument d'étape
+  (`ingestion`, `transformation`, `analytics`, `all` par défaut).
 
 ## Travail sur GitHub (organisation du groupe)
 
