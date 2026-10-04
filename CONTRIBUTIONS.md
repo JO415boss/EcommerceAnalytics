@@ -11,7 +11,7 @@ Responsables et relecteurs imposés par le sujet (Questions 0.1 et 0.3) :
 | Q3.1 à Q3.3 – UDF temporelle, enrichissement, fenêtres | Membre B | Membre A |
 | Q4.1 et Q4.2 – KPI marchands, cohortes de rétention | Membre C | Membre B |
 | Q5.1 et Q5.2 – optimisations Spark (cache, broadcast) | Membre C | Membres A et B |
-| Q6.1 – application principale EcommerceAnalyticsApp | Membre C | Intégration validée par les 3 membres |
+| Q6.1 – application principale (`MainApp.scala`, intitulée « EcommerceAnalyticsApp » dans l'énoncé) | Membre C | Intégration validée par les 3 membres |
 | Q7.1 – application.conf | Membre A | Membre C |
 | Partie 0 (organisation) et Partie 8 (livrables, soutenance) | Collectif | Chaque membre relit le module d'un autre membre |
 
