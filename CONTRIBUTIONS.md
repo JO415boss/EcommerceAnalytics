@@ -59,6 +59,10 @@ Chacun ne modifie que ses propres fichiers (règle anti-conflit du sujet) :
   collectif.
 - Construction du socle du projet (fichiers 1 à 5 du tableau ci-dessous),
   chacun validé avant d'être poussé.
+- Outillage de qualité (04/10/2026) : `tools/check-markdown-tables.ps1` vérifie la
+  cohérence des tableaux Markdown du dépôt (code de sortie `1` si une ligne est
+  tronquée) et `tools/install-git-hooks.ps1` installe le hook `pre-commit` qui
+  l'exécute avant chaque commit (voir `README.md`, section « Travail sur GitHub », §8).
 - Heures travaillées : vendredi 19h → dimanche 2h24 (amplitude ≈ 31 h ;
   travail effectif estimé ≈ 8 h : sessions visibles dans `git log` du 03/10
   16h24 au 04/10 02h07 UTC). Les commits et le push GitHub n'ont fonctionné
