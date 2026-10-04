@@ -73,6 +73,7 @@ Membre C) puis l'écriture des questions par chacun.
 | 3 | `build.sbt` | socle : Scala 2.13.12, Spark 3.5.1, Typesafe Config, exclusions assembly | 03/10/2026 | `51c2779` |
 | 4 | `run-sbt.cmd` | lance sbt avec `HADOOP_HOME` (natives Windows) | 03/10/2026 | `f911d76` |
 | 5 | `src/main/resources/application.conf` | chemins d'entrée `data/...` et sortie `output/` (Q7.1) | 03/10/2026 | `76c4520` |
+| 6 | `src/main/resources/application.conf` (mise à jour) | config complète Q7.1 : spark, optimization, validation | 04/10/2026 | `31ed40f` |
 
 À venir dans cet ordre, un fichier à la fois : `models/` (case classes),
 `utils/DataFrameWriterUtils`, `DataIngestion.scala`, `DataValidation.scala`
