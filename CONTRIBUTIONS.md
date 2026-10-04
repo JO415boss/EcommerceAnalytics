@@ -34,7 +34,7 @@ Chacun ne modifie que ses propres fichiers (règle anti-conflit du sujet) :
 | `src/main/resources/application.conf`, `README.md` | Membre A |
 | `DataTransformation.scala`, `TimeFeatures.scala` | Membre B |
 | `Analytics.scala`, `SparkOptimizations.scala`, `MainApp.scala` | Membre C |
-| `EQUIPE.md`, `CONTRIBUTIONS.md`, `GITHUB.md`, `PRESENTATION.md` | Collectif (rédaction initiale : membre A) |
+| `EQUIPE.md`, `CONTRIBUTIONS.md`, `PRESENTATION.md`, `README.md` | Collectif (rédaction initiale : membre A) |
 
 ## Charge de travail
 
@@ -49,11 +49,14 @@ Chacun ne modifie que ses propres fichiers (règle anti-conflit du sujet) :
   `application.conf`, `README.md`.
 - Questions : Q1.1 à Q1.3, Q2.1 à Q2.4, Q7.1 ; bonus Q2.5. Relecteur de la Partie 3.
 - Mise en place GitHub : dépôt distant, `.gitignore`, identité Git, poussée
-  initiale des documents de suivi (détail dans `GITHUB.md`).
+  initiale des documents de suivi (détail dans la section « Travail sur GitHub »
+  du `README.md`).
 - Documentation : `README.md` (Q1.3), `EQUIPE.md`, `CONTRIBUTIONS.md`,
-  `GITHUB.md`, `PRESENTATION.md` – `README.md` réécrit en version simple le
-  03/10/2026 (commit `52a3ba5`) pour permettre au membre B de démarrer seul.
-  La Partie 8 reste un livrable collectif.
+  `PRESENTATION.md` – `README.md` réécrit en version simple le 03/10/2026
+  (commit `52a3ba5`) pour permettre au membre B de démarrer seul, puis enrichi
+  le 04/10/2026 de tout le guide Git (l'ancien `GITHUB.md` y a été fusionné pour
+  supprimer un doublon documentaire, Q8.1). La Partie 8 reste un livrable
+  collectif.
 - Construction du socle du projet (fichiers 1 à 5 du tableau ci-dessous),
   chacun validé avant d'être poussé.
 - Heures travaillées : vendredi 19h → dimanche 2h24 (amplitude ≈ 31 h ;
@@ -65,7 +68,7 @@ Chacun ne modifie que ses propres fichiers (règle anti-conflit du sujet) :
   locale), premier push et synchronisation de `main` ; résolu le samedi.
 
 **Prêt pour le membre B** : le clone, `run-sbt.cmd compile` et toutes les
-commandes Git décrites dans `GITHUB.md` et `README.md` ont été testés sur le
+commandes Git décrites dans le `README.md` ont été testés sur le
 poste du membre A ; il ne manque que le point d'entrée `MainApp` (fichier 6,
 Membre C) puis l'écriture des questions par chacun.
 
@@ -88,9 +91,11 @@ Membre C) puis l'écriture des questions par chacun.
 | 13 | `analytics/DataQualityReport.scala` | rapport qualité Q2.4 + écriture des 4 rejets (Q2.2/Q2.4) | 04/10/2026 | `6261546` |
 | 14 | `README.md` | sections Q1.3 (prérequis, compilation, exécution, spark-submit) + état | 04/10/2026 | `edb205e` |
 
-À venir dans cet ordre, un fichier à la fois : `models/` (case classes),
-`utils/DataFrameWriterUtils`, `DataIngestion.scala`, `DataValidation.scala`, `DataQualityReport.scala` (Partie 2 terminée : Q2.1 à Q2.4, bonus Q2.5 restant). Chaque fichier sera ajouté au tableau avec son commit dès qu'il
-sera poussé.
+**Les 14 fichiers du tableau ci-dessus sont tous poussés sur `main`** : la Partie 2 est
+terminée (Q2.1 à Q2.4), seul le bonus Q2.5 (intégrité référentielle : comptage des
+`user_id` / `product_id` / `merchant_id` orphelins) reste optionnel. Ajouté le 04/10/2026 :
+tout le guide Git de l'équipe est désormais dans la section « Travail sur GitHub » du
+`README.md` (fusion de l'ancien `GITHUB.md`).
 
 Validation du fichier 5 : les 4 chemins d'entrée référencés
 (`data/transactions.csv`, `data/users.json`, `data/products.parquet`,
