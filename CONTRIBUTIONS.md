@@ -79,6 +79,7 @@ Membre C) puis l'écriture des questions par chacun.
 | 9 | `utils/SparkSessionBuilder.scala` | SparkSession depuis application.conf (Q6.1/Q7.1) | 04/10/2026 | `80264e2` |
 | 10 | `utils/DataFrameWriterUtils.scala` | double écriture CSV+Parquet, rapport qualité fichier unique (Q1.1/Q2.4) | 04/10/2026 | `d240c79` |
 | 11 | `analytics/DataIngestion.scala` | lectures CSV/JSON/Parquet typées Dataset[T] + try-catch (Q2.1/Q2.3) | 04/10/2026 | `80b08fd` |
+| 12 | `analytics/DataValidation.scala` | règles Q2.2, (valides, rejetés + rejection_reason) (Q2.2/Q2.3) | 04/10/2026 | `972bb25` |
 
 À venir dans cet ordre, un fichier à la fois : `models/` (case classes),
 `utils/DataFrameWriterUtils`, `DataIngestion.scala`, `DataValidation.scala`
