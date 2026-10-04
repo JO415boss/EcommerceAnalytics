@@ -92,7 +92,7 @@ Validation du fichier 5 : les 4 chemins d'entrée référencés
 
 Validation : le fichier 3 a été corrigé (`f.data.getName` au lieu de `f.getName`,
 type `Attributed[File]` de sbt-assembly, commit `cc07aeb`) puis **`sbt compile`
-est passé avec succès le 03/10/2026** – `build.sbt`, `project/plugins.sbt` et
+est passé avec succès le 03/10/2026** puis à nouveau le 04/10/2026 (`.\run-sbt.cmd compile` → `[success]` en 46 s) avec les 7 fichiers Scala du membre A (models, 3 utils, DataIngestion, DataValidation) – `build.sbt`, `project/plugins.sbt` et
 `project/build.properties` sont donc validés ensemble. Le fichier 4 a lui aussi
 été **validé par une exécution réelle** (`.\run-sbt.cmd compile` -> `[success]`
 le 03/10/2026) ; à noter : ce launcher sbt accepte ni `-batch` ni `-no-colors`,
