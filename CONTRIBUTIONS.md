@@ -2,34 +2,67 @@
 
 ## Tableau de répartition
 
+Responsables et relecteurs imposés par le sujet (Questions 0.1 et 0.3) :
+
 | Question | Membre responsable | Membre relecteur |
 |---|---|---|
-| Q1.1 à Q1.3 | à attribuer | à attribuer |
-| Q2.1 à Q2.4 | à attribuer | à attribuer |
-| Q3.1 à Q3.3 | à attribuer | à attribuer |
-| Q4.1 à Q4.2 | à attribuer | à attribuer |
-| Q5.1 à Q5.2 | à attribuer | à attribuer |
-| Q6.1 | à attribuer | à attribuer |
-| Q7.1 | à attribuer | à attribuer |
-| Partie 8 | à attribuer | à attribuer |
+| Q1.1 à Q1.3 – structure SBT, build.sbt, README | Membre A | Membre C |
+| Q2.1 à Q2.4 – ingestion, validation, rapport de qualité | Membre A | Membre B |
+| Q3.1 à Q3.3 – UDF temporelle, enrichissement, fenêtres | Membre B | Membre A |
+| Q4.1 et Q4.2 – KPI marchands, cohortes de rétention | Membre C | Membre B |
+| Q5.1 et Q5.2 – optimisations Spark (cache, broadcast) | Membre C | Membres A et B |
+| Q6.1 – application principale EcommerceAnalyticsApp | Membre C | Intégration validée par les 3 membres |
+| Q7.1 – application.conf | Membre A | Membre C |
+| Partie 0 (organisation) et Partie 8 (livrables, soutenance) | Collectif | Chaque membre relit le module d'un autre membre |
+
+Questions bonus (facultatives, à ne traiter qu'après le tronc commun) :
+
+- Q2.5 (intégrité référentielle) → Membre A
+- Q3.4 (transactions suspectes) → Membre B
+- Q4.3 (RFM), Q4.4 (produits/catégories), Q5.3 (gain des optimisations), Q6.2 (exécution modulaire) → Membre C
+
+## Découpage des fichiers source (Question 1.1)
+
+Chacun ne modifie que ses propres fichiers (règle anti-conflit du sujet) :
+
+| Fichier / répertoire | Propriétaire |
+|---|---|
+| Structure SBT : `build.sbt`, `project/*`, `.gitignore`, `run-sbt.cmd` | Membre A |
+| `src/main/scala/com/ecommerce/models/` (case classes) | Membre A |
+| `src/main/scala/com/ecommerce/utils/` (`SparkSessionBuilder`, `ConfigLoader`, `DataFrameWriterUtils`) | Membre A – objet commun appelé par les 3 membres |
+| `DataIngestion.scala`, `DataValidation.scala` | Membre A |
+| `src/main/resources/application.conf`, `README.md` | Membre A |
+| `DataTransformation.scala`, `TimeFeatures.scala` | Membre B |
+| `Analytics.scala`, `SparkOptimizations.scala`, `MainApp.scala` | Membre C |
+| `EQUIPE.md`, `CONTRIBUTIONS.md`, `GITHUB.md`, `PRESENTATION.md` | Collectif (rédaction initiale : membre A) |
 
 ## Charge de travail
 
-### Membre A – Joseph N SADIO (depuis le 03/10/2026)
+> La Question 0.3 demande une estimation honnête de la charge **en heures** et la
+> liste des difficultés rencontrées, pour chaque membre : à renseigner par chacun
+> au fil de son travail.
 
+### Membre A – Joseph N SADIO (depuis le 03/10/2026) – Data Ingestion & Platform Engineer
+
+- Rôle (Question 0.1) : Parties 1, 2 et 7 – structure SBT, `build.sbt`, case
+  classes, `DataIngestion.scala`, validations, rapport de qualité des données,
+  `application.conf`, `README.md`.
+- Questions : Q1.1 à Q1.3, Q2.1 à Q2.4, Q7.1 ; bonus Q2.5. Relecteur de la Partie 3.
 - Mise en place GitHub : dépôt distant, `.gitignore`, identité Git, poussée
   initiale des documents de suivi (détail dans `GITHUB.md`).
-- Partie 8 (documentation) : `README.md`, `EQUIPE.md`, `CONTRIBUTIONS.md`,
-  `GITHUB.md`, `PRESENTATION.md` — `README.md` réécrit en version simple le
+- Documentation : `README.md` (Q1.3), `EQUIPE.md`, `CONTRIBUTIONS.md`,
+  `GITHUB.md`, `PRESENTATION.md` – `README.md` réécrit en version simple le
   03/10/2026 (commit `52a3ba5`) pour permettre au membre B de démarrer seul.
+  La Partie 8 reste un livrable collectif.
 - Construction du socle du projet (fichiers 1 à 5 du tableau ci-dessous),
   chacun validé avant d'être poussé.
-- Questions techniques : à attribuer lors de la répartition.
+- Heures travaillées : à compléter (obligatoire avant la remise).
+- Difficultés rencontrées : à compléter.
 
 **Prêt pour le membre B** : le clone, `run-sbt.cmd compile` et toutes les
 commandes Git décrites dans `GITHUB.md` et `README.md` ont été testés sur le
-poste du membre A ; il ne manque que le point d'entrée `MainApp` (fichier 6)
-puis l'écriture des questions.
+poste du membre A ; il ne manque que le point d'entrée `MainApp` (fichier 6,
+Membre C) puis l'écriture des questions par chacun.
 
 #### Fichiers créés par le membre A (cadence : un seul fichier à la fois, 1 fichier = 1 commit)
 
@@ -41,8 +74,10 @@ puis l'écriture des questions.
 | 4 | `run-sbt.cmd` | lance sbt avec `HADOOP_HOME` (natives Windows) | 03/10/2026 | `f911d76` |
 | 5 | `src/main/resources/application.conf` | chemins d'entrée `data/...` et sortie `output/` (Q7.1) | 03/10/2026 | `76c4520` |
 
-À venir dans cet ordre, un fichier à la fois : point d'entrée `MainApp`. Chaque
-fichier sera ajouté au tableau avec son commit dès qu'il sera poussé.
+À venir dans cet ordre, un fichier à la fois : `models/` (case classes),
+`utils/DataFrameWriterUtils`, `DataIngestion.scala`, `DataValidation.scala`
+(Q2.1 à Q2.4). Chaque fichier sera ajouté au tableau avec son commit dès qu'il
+sera poussé.
 
 Validation du fichier 5 : les 4 chemins d'entrée référencés
 (`data/transactions.csv`, `data/users.json`, `data/products.parquet`,
@@ -50,19 +85,41 @@ Validation du fichier 5 : les 4 chemins d'entrée référencés
 
 Validation : le fichier 3 a été corrigé (`f.data.getName` au lieu de `f.getName`,
 type `Attributed[File]` de sbt-assembly, commit `cc07aeb`) puis **`sbt compile`
-est passé avec succès le 03/10/2026** — `build.sbt`, `project/plugins.sbt` et
+est passé avec succès le 03/10/2026** – `build.sbt`, `project/plugins.sbt` et
 `project/build.properties` sont donc validés ensemble. Le fichier 4 a lui aussi
-été **validé par une exécution réelle** (`.\run-sbt.cmd compile` → `[success]`
+été **validé par une exécution réelle** (`.\run-sbt.cmd compile` -> `[success]`
 le 03/10/2026) ; à noter : ce launcher sbt accepte ni `-batch` ni `-no-colors`,
 il faut invoquer directement `sbt compile` (ou `run-sbt.cmd compile`).
+### Membre B – SECK Mamour – Data Transformation Engineer
 
-### Membres B et C
+- Rôle (Question 0.1) : Partie 3 – UDF `extractTimeFeatures` (Q3.1), fonction
+  `enrichTransactionData` : jointures et enrichissement (Q3.2), fenêtres
+  glissantes et détection de comportements (Q3.3) ; bonus Q3.4 (transactions
+  suspectes).
+- Fichiers propriétaires : `TimeFeatures.scala`, `DataTransformation.scala`.
+- Relecteur de la Partie 2 (Q2.1 à Q2.4).
+- Compte GitHub : `mamourseck179-maker` – invitation en collaborateur (accès
+  écriture) envoyée le 03/10/2026 ; une fois acceptée :
+  `git clone https://github.com/JO415boss/EcommerceAnalytics.git` puis
+  `git pull origin main` avant de commencer.
+- Heures travaillées : à compléter (obligatoire avant la remise).
+- Difficultés rencontrées : à compléter.
 
-- Comptes GitHub : SECK Mamour = `mamourseck179-maker`, SYLVA Frederic = `sylvafrederic00-lang`.
-- Invitation en collaborateur (accès écriture) envoyée le 03/10/2026 ;
-  à accepter depuis la boîte de réception GitHub ou la page des invitations du dépôt.
-- Une fois l'invitation acceptée : `git clone https://github.com/JO415boss/EcommerceAnalytics.git`
-  puis `git pull origin main` avant de commencer, et déclarer leur charge ici.
+### Membre C – SYLVA Frederic – Analytics & Performance Engineer
+
+- Rôle (Question 0.1) : Parties 4, 5 et 6 – KPI marchands (Q4.1), cohortes de
+  rétention (Q4.2), optimisations Spark (Q5.1, Q5.2), application principale
+  `MainApp.scala` (Q6.1) ; bonus Q4.3 (RFM), Q4.4 (produits/catégories),
+  Q5.3 (mesure du gain), Q6.2 (exécution modulaire).
+- Fichiers propriétaires : `Analytics.scala`, `SparkOptimizations.scala`,
+  `MainApp.scala`.
+- Relecteur des Parties 1 et 7 (membre A).
+- Compte GitHub : `sylvafrederic00-lang` – invitation en collaborateur (accès
+  écriture) envoyée le 03/10/2026 ; une fois acceptée :
+  `git clone https://github.com/JO415boss/EcommerceAnalytics.git` puis
+  `git pull origin main` avant de commencer.
+- Heures travaillées : à compléter (obligatoire avant la remise).
+- Difficultés rencontrées : à compléter.
 
 ## Décisions techniques du groupe
 
@@ -89,3 +146,13 @@ il faut invoquer directement `sbt compile` (ou `run-sbt.cmd compile`).
 ## Relectures croisées
 
 Chaque relecture doit être inscrite ici après avoir été effectuée : date, relecteur et remarques.
+
+| Partie | Auteur (responsable) | Relecteur prévu | Date | Remarques |
+|---|---|---|---|---|
+| Partie 1 | Membre A | Membre C | à faire | |
+| Partie 2 | Membre A | Membre B | à faire | |
+| Partie 3 | Membre B | Membre A | à faire | |
+| Partie 4 | Membre C | Membre B | à faire | |
+| Partie 5 | Membre C | Membres A et B | à faire | |
+| Partie 6 | Membre C | Les 3 membres (intégration) | à faire | |
+| Partie 7 | Membre A | Membre C | à faire | |

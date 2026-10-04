@@ -1,10 +1,35 @@
 # Équipe
 
-| Nom    | Prénom | Code étudiant | Rôle | Questions traitées |
+| Nom    | Prénom | Code étudiant | Rôle (Question 0.1 du sujet) | Questions traitées |
 |--------|--------|---|---|---|
-| SADIO | Joseph Niaga (Joseph N) | 1510384 | Membre A – mise en place du dépôt GitHub, documentation | Partie 8 ; autres questions à attribuer |
-| SECK | Mamour | à compléter | Membre B | à attribuer |
-| SYLVA | Frederic | à compléter | Membre C | à attribuer |
+| SADIO | Joseph Niaga (Joseph N) | 1510384 | Membre A – Data Ingestion & Platform Engineer | Q1.1 à Q1.3, Q2.1 à Q2.4, Q7.1 (bonus : Q2.5) ; Partie 8 en commun |
+| SECK | Mamour | à compléter | Membre B – Data Transformation Engineer | Q3.1 à Q3.3 (bonus : Q3.4) ; Partie 8 en commun |
+| SYLVA | Frederic | à compléter | Membre C – Analytics & Performance Engineer | Q4.1, Q4.2, Q5.1, Q5.2, Q6.1 (bonus : Q4.3, Q4.4, Q5.3, Q6.2) ; Partie 8 en commun |
+
+## Périmètre de chaque rôle (d'après le sujet)
+
+| Rôle | Périmètre principal | Livrables dont le membre est propriétaire |
+|---|---|---|
+| Membre A | Parties 1, 2 et 7 | Structure SBT, `build.sbt`, case classes, `DataIngestion.scala`, validations, rapport de qualité des données, `application.conf`, `README.md` |
+| Membre B | Partie 3 | UDF `extractTimeFeatures`, `DataTransformation.scala`, jointures d'enrichissement, fonctions de fenêtrage, détection de comportements |
+| Membre C | Parties 4, 5 et 6 | `Analytics.scala`, KPI marchands, cohortes, segmentation RFM, optimisations Spark, `MainApp.scala`, écriture des résultats |
+
+Les Parties 8 et 9 (tests, qualité, documentation, soutenance) sont réalisées
+collectivement : chaque membre y contribue pour la portion du code dont il est
+propriétaire.
+
+## Responsables et relecteurs par partie (imposés par le sujet)
+
+| Partie | Responsable | Relecteur |
+|---|---|---|
+| Partie 1 – Configuration et structure du projet | Membre A | Membre C |
+| Partie 2 – Ingestion et validation des données | Membre A | Membre B |
+| Partie 3 – Transformations avancées | Membre B | Membre A |
+| Partie 4 – Analytique business | Membre C | Membre B |
+| Partie 5 – Optimisations Spark | Membre C | Membres A et B |
+| Partie 6 – Application principale | Membre C | Intégration validée par les 3 membres |
+| Partie 7 – Configuration externalisée | Membre A | Membre C |
+| Parties 8 et 9 – Livrables et soutenance | Collectif | — |
 
 Comptes GitHub des membres : **A** = `JO415boss`, **B** = `mamourseck179-maker`,
 **C** = `sylvafrederic00-lang`.

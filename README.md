@@ -29,8 +29,8 @@ Quatre entrées dans `data/` : `transactions.csv`, `users.json`,
 
 | Fichier | Rôle |
 |---|---|
-| `EQUIPE.md` | membres et comptes GitHub |
-| `CONTRIBUTIONS.md` | questions, charge de travail, décisions techniques |
+| `EQUIPE.md` | membres, rôles (Parties 1-7) et comptes GitHub |
+| `CONTRIBUTIONS.md` | répartition des questions, charge de travail, décisions techniques |
 | `GITHUB.md` | commandes Git du groupe |
 | `PRESENTATION.md` | support de 
 
