@@ -11,3 +11,8 @@ logs/
 .metals/
 .bloop/
 .DS_Store
+
+# Journaux de travail personnels (ex. TRAVAIL_MEMBRE_A.md) : préparation des
+# analyses « 5 Pourquoi » et des questions du jury. Fichiers LOCAUX et
+# volontairement NON versionnés : jamais poussés, jamais dans l'archive ZIP.
+TRAVAIL_MEMBRE_*.md
