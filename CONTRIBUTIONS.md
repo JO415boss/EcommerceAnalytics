@@ -81,6 +81,7 @@ Membre C) puis l'écriture des questions par chacun.
 | 11 | `analytics/DataIngestion.scala` | lectures CSV/JSON/Parquet typées Dataset[T] + try-catch (Q2.1/Q2.3) | 04/10/2026 | `80b08fd` |
 | 12 | `analytics/DataValidation.scala` | règles Q2.2, (valides, rejetés + rejection_reason) (Q2.2/Q2.3) | 04/10/2026 | `972bb25` |
 | 13 | `analytics/DataQualityReport.scala` | rapport qualité Q2.4 + écriture des 4 rejets (Q2.2/Q2.4) | 04/10/2026 | `6261546` |
+| 14 | `README.md` | sections Q1.3 (prérequis, compilation, exécution, spark-submit) + état | 04/10/2026 | `edb205e` |
 
 À venir dans cet ordre, un fichier à la fois : `models/` (case classes),
 `utils/DataFrameWriterUtils`, `DataIngestion.scala`, `DataValidation.scala`, `DataQualityReport.scala` (Partie 2 terminée : Q2.1 à Q2.4, bonus Q2.5 restant). Chaque fichier sera ajouté au tableau avec son commit dès qu'il
