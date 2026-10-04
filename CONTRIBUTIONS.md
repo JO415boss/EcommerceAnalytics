@@ -76,6 +76,7 @@ Membre C) puis l'écriture des questions par chacun.
 | 6 | `src/main/resources/application.conf` (mise à jour) | config complète Q7.1 : spark, optimization, validation | 04/10/2026 | `31ed40f` |
 | 7 | `models/DataModels.scala` | case classes Transaction/User/Product/Merchant + QualityReportRow (Q2.1, Q2.4) | 04/10/2026 | `664703f` |
 | 8 | `utils/ConfigLoader.scala` | chargement application.conf + valeurs par defaut (Q7.1) | 04/10/2026 | `4acb184` |
+| 9 | `utils/SparkSessionBuilder.scala` | SparkSession depuis application.conf (Q6.1/Q7.1) | 04/10/2026 | `80264e2` |
 
 À venir dans cet ordre, un fichier à la fois : `models/` (case classes),
 `utils/DataFrameWriterUtils`, `DataIngestion.scala`, `DataValidation.scala`
