@@ -7,7 +7,7 @@
 
   Utilisation :
     powershell -NoProfile -ExecutionPolicy Bypass -File tools/check-markdown-tables.ps1
-    powershell -NoProfile -ExecutionPolicy Bypass -File tools/check-markdown-tables.ps1 TRAVAIL_MEMBRE_A.md
+    powershell -NoProfile -ExecutionPolicy Bypass -File tools/check-markdown-tables.ps1 README.md
 
   Sans argument, le script controle tous les fichiers *.md suivis par Git.
   Code de sortie : 0 = aucun probleme, 1 = au moins un tableau incoherent.

@@ -207,7 +207,6 @@ chmod +x .git/hooks/pre-commit
 |---|---|
 | `EQUIPE.md` | membres, rôles (Parties 1-7) et comptes GitHub |
 | `CONTRIBUTIONS.md` | répartition des questions, charge de travail, décisions techniques |
-| `PRESENTATION.md` | support de présentation utilisé pour la soutenance (Q8.1) |
 | `tools/` | outillage de qualité : `check-markdown-tables.ps1` (vérifie les tableaux Markdown), `install-git-hooks.ps1` (installe le hook `pre-commit`) |
 
 Le mode d'emploi Git du groupe n'est plus dans un fichier séparé : il constitue la

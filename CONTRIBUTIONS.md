@@ -34,7 +34,7 @@ Chacun ne modifie que ses propres fichiers (règle anti-conflit du sujet) :
 | `src/main/resources/application.conf`, `README.md` | Membre A |
 | `DataTransformation.scala`, `TimeFeatures.scala` | Membre B |
 | `Analytics.scala`, `SparkOptimizations.scala`, `MainApp.scala` | Membre C |
-| `EQUIPE.md`, `CONTRIBUTIONS.md`, `PRESENTATION.md`, `README.md` | Collectif (rédaction initiale : membre A) |
+| `EQUIPE.md`, `CONTRIBUTIONS.md`, `README.md` | Collectif (rédaction initiale : membre A) |
 
 ## Charge de travail
 
@@ -51,8 +51,8 @@ Chacun ne modifie que ses propres fichiers (règle anti-conflit du sujet) :
 - Mise en place GitHub : dépôt distant, `.gitignore`, identité Git, poussée
   initiale des documents de suivi (détail dans la section « Travail sur GitHub »
   du `README.md`).
-- Documentation : `README.md` (Q1.3), `EQUIPE.md`, `CONTRIBUTIONS.md`,
-  `PRESENTATION.md` – `README.md` réécrit en version simple le 03/10/2026
+- Documentation : `README.md` (Q1.3), `EQUIPE.md`, `CONTRIBUTIONS.md` –
+  `README.md` réécrit en version simple le 03/10/2026
   (commit `52a3ba5`) pour permettre au membre B de démarrer seul, puis enrichi
   le 04/10/2026 de tout le guide Git (l'ancien `GITHUB.md` y a été fusionné pour
   supprimer un doublon documentaire, Q8.1). La Partie 8 reste un livrable
