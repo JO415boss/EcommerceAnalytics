@@ -218,10 +218,16 @@ section **« Travail sur GitHub »** ci-dessus (l'ancien `GITHUB.md` y a été f
 - ✅ Dépôt GitHub, build SBT et configuration créés et validés par le membre A
   (fichiers et commits détaillés dans `CONTRIBUTIONS.md`).
 - ✅ Partie 1 (Q1.1 à Q1.3), Partie 2 (Q2.1 à Q2.4) et Partie 7 (Q7.1) terminées
-  par le membre A : 8 fichiers Scala compilés avec succès.
-- ⏳ Reste au membre B la Partie 3 (Q3.1 à Q3.3) et au membre C les Parties 4 à 6.
+  par le membre A : 7 fichiers Scala compilés avec succès.
+- ✅ Partie 3 (Q3.1 à Q3.3) livrée par le membre B (`TimeFeatures.scala`,
+  `DataTransformation.scala`) et relue par le membre A le 06/10/2026 (détail dans
+  `CONTRIBUTIONS.md`, section « Relectures croisées »).
+- ⏳ Reste au membre C les Parties 4 à 6 (`Analytics.scala`,
+  `SparkOptimizations.scala`, `MainApp.scala`).
 - En l'état, `run-sbt.cmd compile` fonctionne ; `sbt run` et `sbt assembly` ne
   produiront un exécutable qu'une fois le point d'entrée ajouté.
+- ✅ `sbt compile` validé le 06/10/2026 sur les 9 fichiers Scala du projet
+  (7 du membre A, 2 du membre B).
 
 ## Règles du groupe
 
