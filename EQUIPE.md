@@ -37,7 +37,7 @@ Comptes GitHub des membres : **A** = `JO415boss`, **B** = `mamourseck179-maker`,
 Invitations en collaborateur (accès écriture) envoyées le 03/10/2026 à B et C ;
 elles restent valables jusqu'à leur acceptation sur github.com.
 
-## Mise en place Git (membre A – 03/10/2026, complétée le 04/10/2026)
+## Mise en place Git (membre A – du 03/10/2026 au 06/10/2026)
 
 - Dépôt distant : `https://github.com/JO415boss/EcommerceAnalytics.git` (branche `main`).
 - `.gitignore`, identité Git (`Joseph N SADIO <sadiojoseph4@gmail.com>`) et
@@ -47,6 +47,9 @@ elles restent valables jusqu'à leur acceptation sur github.com.
   documentaire (la Q8.1 ne demande que `README.md`, `EQUIPE.md` et `CONTRIBUTIONS.md`).
 - Fichiers de préparation personnels (`TRAVAIL_MEMBRE_*.md`) : ignorés par Git, jamais
   poussés et jamais inclus dans l'archive ZIP.
+- **06/10/2026** : re-synchronisation (`git pull origin main`) avant reprise du
+  travail, revue croisée de la Partie 3 (membre B) et poussée des mises à jour
+  de documentation sur `main`.
 
 ## Règles de travail
 
