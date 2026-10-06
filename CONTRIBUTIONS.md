@@ -67,6 +67,10 @@ Chacun ne modifie que ses propres fichiers (règle anti-conflit du sujet) :
   travail effectif estimé ≈ 8 h : sessions visibles dans `git log` du 03/10
   16h24 au 04/10 02h07 UTC). Les commits et le push GitHub n'ont fonctionné
   normalement qu'à partir de samedi.
+- Suite du travail : 05/10/2026 (harmonisation des documents de suivi, commits
+  `77d83e6` et `b924ccf`) puis 06/10/2026 (`git pull` de synchronisation,
+  relecture de la Partie 3, mise à jour de l'état du README) ; heures à
+  additionner ci-dessus avant la remise (Question 0.3).
 - Difficultés rencontrées : configuration GitHub (plus gros problème) —
   identité des commits (`JO415boss` vs `Joseph N SADIO`, config globale vs
   locale), premier push et synchronisation de `main` ; résolu le samedi.
@@ -173,7 +177,7 @@ Chaque relecture doit être inscrite ici après avoir été effectuée : date, r
 |---|---|---|---|---|
 | Partie 1 | Membre A | Membre C | à faire | |
 | Partie 2 | Membre A | Membre B | à faire | |
-| Partie 3 | Membre B | Membre A | à faire | |
+| Partie 3 | Membre B | Membre A | 06/10/2026 | Revu le 06/10/2026 (TimeFeatures.scala, DataTransformation.scala) : Q3.1 — fonction extract pure, null et longueur != 14 gérés, Locale.ENGLISH figé (résultats déterministes) ; Q3.2 — colonnes homonymes renommées avant les jointures left, struct time_features éclatée ; Q3.3 — fenêtre range -7 jours sur timestamp casté en long, collect_set + size à la place de countDistinct (interdit en fenêtre), lag et datediff. sbt compile vert le 06/10/2026 sur les 9 fichiers Scala. À confirmer lors de l'intégration : frontière age_group à 25 ans (classée Adulte, documentée dans le code) et product.category non retenue dans les colonnes finales. |
 | Partie 4 | Membre C | Membre B | à faire | |
 | Partie 5 | Membre C | Membres A et B | à faire | |
 | Partie 6 | Membre C | Les 3 membres (intégration) | à faire | |
