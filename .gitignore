@@ -23,3 +23,7 @@ Projet_Final_Spark_Scala_GROUPE_3.pdf
 
 # Support de soutenance : document de travail local, jamais committé ni poussé.
 PRESENTATION.md
+
+# Jeu de donnees complet deposes a la racine : archive de donnees (3,7 Mo),
+# jamais versionnee ni poussée sur GitHub.
+data_groupe3.zip
