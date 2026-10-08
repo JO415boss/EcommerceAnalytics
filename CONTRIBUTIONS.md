@@ -128,8 +128,8 @@ il faut invoquer directement `sbt compile` (ou `run-sbt.cmd compile`).
   écriture) envoyée le 03/10/2026 ; une fois acceptée :
   `git clone https://github.com/JO415boss/EcommerceAnalytics.git` puis
   `git pull origin main` avant de commencer.
-- Heures travaillées : à compléter (obligatoire avant la remise).
-- Difficultés rencontrées : à compléter.
+- Heures travaillées : du 04/10 vers 13h (clonage du dépôt) au 08/10, environ 10 à 20 h de travail effectif : installation de l'environnement (Git, Java, sbt, Hadoop), Q3.1, Q3.2, Q3.3, tests sur les données réelles, relecture de la Partie 2..
+- Difficultés rencontrées : configuration de l'environnement sous Windows : installation de Git, blocage réseau sur git clone et git push (échec de connexion à github.com:443) contourné avec l'option -4 (IPv4), installation de sbt (ZIP lancé à la place du MSI) ; rejet d'un git push ("fetch first") résolu par git pull --rebase ; Spark 3.5.1 sur Java 17 : erreur d'accès au module sun.nio.ch, résolue avec des options --add-opens ; hadoop.dll et winutils.exe absents sous Windows, nécessaires à la lecture du Parquet ; jeux de données absents du dépôt (fournis à part) ; horodatages mal formés dans les données (8, 12 ou 16 caractères) qui font échouer to_timestamp, donc enrichAll ne doit recevoir que les transactions déjà validées ; bug de lecture des utilisateurs (age lu en BIGINT, case class en Int) signalé au Membre A.
 
 ### Membre C – SYLVA Frederic – Analytics & Performance Engineer
 
