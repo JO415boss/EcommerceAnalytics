@@ -41,18 +41,19 @@ class Analytics(optimisations: SparkOptimizations) {
         countDistinct("product_id").as("nb_produits_vendus")
       )
 
-    val referentiel = optimisations.maybeBroadcast(
-      merchants.select(
-        col("merchant_id"),
-        col("name").as("merchant_name"),
-        col("category").as("merchant_category"),
-        col("region"),
-        col("commission_rate")
-      )
+    val referentiel = merchants.select(
+      col("merchant_id"),
+      col("name").as("merchant_name"),
+      col("category").as("merchant_category"),
+      col("region"),
+      col("commission_rate")
     )
 
     referentiel
-      .join(metriques, Seq("merchant_id"), "left")
+      // Q5.2 : le hint de broadcast doit etre sur le cote DROIT de la jointure
+      // gauche (le "build side") ; sur le cote gauche Spark l'ignore
+      // (WARN "build left for left outer join" constate au run du 09/10).
+      .join(optimisations.maybeBroadcast(metriques), Seq("merchant_id"), "left")
       // marchand sans vente : metriques a zero plutot que null
       .withColumn("nb_transactions", coalesce(col("nb_transactions"), lit(0L)))
       .withColumn("ca_total", coalesce(col("ca_total"), lit(0.0)))
