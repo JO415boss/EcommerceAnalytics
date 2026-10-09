@@ -54,8 +54,9 @@ Quatre entrées dans `data/` : `transactions.csv`, `users.json`,
   `output/parquet/<nom>/`, en mode `overwrite`. Seul le rapport de qualité est un
   **fichier CSV unique** (`output/rapport_qualite_yyyymmdd.csv`). Ces écritures passent
   toutes par `utils/DataFrameWriterUtils`, jamais réécrites au cas par cas.
-- Exécution modulaire (bonus Q6.2, membre C) : `MainApp` accepte un argument d'étape
-  (`ingestion`, `transformation`, `analytics`, `all` par défaut).
+- Exécution modulaire (bonus Q6.2, membre C) : `MainApp` devra accepter un argument
+  d'étape (`ingestion`, `transformation`, `analytics`, `all` par défaut) — en attente
+  de la livraison de la Partie 6.
 
 ## Travail sur GitHub (organisation du groupe)
 
@@ -228,8 +229,11 @@ section **« Travail sur GitHub »** ci-dessus (l'ancien `GITHUB.md` y a été f
   produiront un exécutable qu'une fois le point d'entrée ajouté.
 - ✅ `sbt compile` validé le 06/10/2026 sur les 9 fichiers Scala du projet
   (7 du membre A, 2 du membre B).
-- ✅ 09/10/2026 : lecture de `users.json` corrigée (relecture de la Partie 2)
-  et commentaires du code du membre A rendus plus simples.
+- ✅ 09/10/2026 : lecture de `users.json` corrigée (relecture de la Partie 2),
+  commentaires du code du membre A rendus plus simples, bonus Q2.5 ajouté au
+  rapport de qualité, `--add-opens` ajoutés à `build.sbt` pour Java 17, données
+  décompressées et parties ingestion/validation exécutées sur les vraies données
+  (138 047 transactions ; `output/rapport_qualite_20261009.csv` + rejets CSV/Parquet).
 
 ## Règles du groupe
 
