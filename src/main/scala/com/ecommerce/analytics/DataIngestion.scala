@@ -4,17 +4,17 @@ import com.ecommerce.models.{Merchant, Product, Transaction, User}
 import com.ecommerce.utils.ConfigLoader
 import com.typesafe.config.Config
 import org.apache.spark.sql.{Dataset, SparkSession}
+import org.apache.spark.sql.functions.col
 import org.apache.spark.sql.types._
 
-/** Ingestion multi-format des quatre jeux de donnees (Q2.1).
-  * - transactions.csv : schema defini explicitement.
-  * - users.json : une ligne = un objet, champ imbrique preferred_categories.
-  * - products.parquet : format optimise, charge tel quel.
-  * - merchants.csv : schema infere par Spark.
-  * Les chemins proviennent de application.conf, jamais codes en dur (Q7.1).
-  * Blocs try-catch : toute erreur de lecture est affichee sans faire
-  * echouer brutalement le job (Q2.3). Le nombre de lignes lues est
-  * affiche avant validation (Q2.3).
+/** Lecture des quatre fichiers de donnees (Q2.1).
+  * - transactions.csv : colonnes definies a la main.
+  * - users.json : une ligne = un utilisateur, categories imbriquees.
+  * - products.parquet : charge tel quel (format optimise).
+  * - merchants.csv : colonnes devinees par Spark.
+  * Chemins lus dans application.conf, jamais ecrits en dur ici (Q7.1).
+  * Si une lecture echoue, l'erreur est affichee et un jeu vide est renvoye
+  * (Q2.3) ; le nombre de lignes lues est aussi affiche (Q2.3).
   */
 class DataIngestion(spark: SparkSession, conf: Config) {
 
@@ -62,7 +62,8 @@ class DataIngestion(spark: SparkSession, conf: Config) {
     try {
       val df = spark.read.json(usersPath)
       println(s"[ingestion] users lus : ${df.count()} lignes ($usersPath)")
-      df.as[User]
+      // l'age est lu comme un grand nombre : on le transforme en entier pour User
+      df.withColumn("age", col("age").cast("int")).as[User]
     } catch {
       case e: Exception =>
         println(s"[ingestion] ERREUR lecture users ($usersPath) : ${e.getMessage}")
