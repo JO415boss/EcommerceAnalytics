@@ -12,18 +12,14 @@ logs/
 .bloop/
 .DS_Store
 
-# Journaux de travail personnels (ex. TRAVAIL_MEMBRE_A.md) : préparation des
-# analyses « 5 Pourquoi » et des questions du jury. Fichiers LOCAUX et
-# volontairement NON versionnés : jamais poussés, jamais dans l'archive ZIP.
+# Notes personnelles du membre A : jamais versionnées ni poussées.
 TRAVAIL_MEMBRE_*.md
 
-# Énoncé fourni par l'enseignant : conservé sur le poste pour référence, jamais
-# versionné ni inclus dans l'archive de rendu.
+# Énoncé du professeur : reste sur le poste, jamais versionné.
 Projet_Final_Spark_Scala_GROUPE_3.pdf
 
-# Support de soutenance : document de travail local, jamais committé ni poussé.
+# Support de soutenance : document local, jamais poussé.
 PRESENTATION.md
 
-# Jeu de donnees complet deposes a la racine : archive de donnees (3,7 Mo),
-# jamais versionnee ni poussée sur GitHub.
+# Archive de données : trop lourde pour GitHub, jamais poussée.
 data_groupe3.zip
