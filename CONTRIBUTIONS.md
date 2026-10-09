@@ -63,17 +63,20 @@ Chacun ne modifie que ses propres fichiers (règle anti-conflit du sujet) :
   cohérence des tableaux Markdown du dépôt (code de sortie `1` si une ligne est
   tronquée) et `tools/install-git-hooks.ps1` installe le hook `pre-commit` qui
   l'exécute avant chaque commit (voir `README.md`, section « Travail sur GitHub », §8).
-- Heures travaillées : vendredi 19h → dimanche 2h24 (amplitude ≈ 31 h ;
-  travail effectif estimé ≈ 8 h : sessions visibles dans `git log` du 03/10
-  16h24 au 04/10 02h07 UTC). Les commits et le push GitHub n'ont fonctionné
-  normalement qu'à partir de samedi.
-- Suite du travail : 05/10/2026 (harmonisation des documents de suivi, commits
-  `77d83e6` et `b924ccf`) puis 06/10/2026 (`git pull` de synchronisation,
-  relecture de la Partie 3, mise à jour de l'état du README) ; heures à
-  additionner ci-dessus avant la remise (Question 0.3).
+- Heures travaillées (estimation honnête, d'après les sessions visibles dans
+  `git log`) : **03–04/10 : ≈ 8 h** (socle du projet et Partie 2, sessions du
+  03/10 16h24 au 04/10 02h26 UTC puis du 04/10 10h42 à 13h29) ; **05/10 :
+  ≈ 1 h** (harmonisation des documents de suivi, commits `77d83e6` et
+  `b924ccf`) ; **06/10 : ≈ 1 h** (`git pull` de synchronisation, relecture de
+  la Partie 3, état du README) ; **09/10 : ≈ 2 h** (correctif `users.json`,
+  commentaires simplifiés, bonus Q2.5, exécution sur les vraies données).
+  **Total : ≈ 12 h** (Question 0.3). Les commits et le push GitHub n'ont
+  fonctionné normalement qu'à partir du samedi 04/10.
 - 09/10/2026 : correctif appliqué sur la lecture de `users.json` (champ `age`)
-  suite à la relecture de la Partie 2, et commentaires de mes fichiers rendus
-  plus simples ; heures à additionner ci-dessus.
+  suite à la relecture de la Partie 2 ; commentaires de mes fichiers rendus
+  plus simples ; bonus Q2.5 ajouté au rapport de qualité ; `--add-opens` ajoutés
+  à `build.sbt` pour Java 17 ; données décompressées puis ingestion, validation,
+  rapport et rejets exécutés sur les vraies données (138 047 transactions).
 - Difficultés rencontrées : configuration GitHub (plus gros problème) —
   identité des commits (`JO415boss` vs `Joseph N SADIO`, config globale vs
   locale), premier push et synchronisation de `main` ; résolu le samedi.
@@ -103,8 +106,9 @@ Membre C) puis l'écriture des questions par chacun.
 | 14 | `README.md` | sections Q1.3 (prérequis, compilation, exécution, spark-submit) + état | 04/10/2026 | `edb205e` |
 
 **Les 14 fichiers du tableau ci-dessus sont tous poussés sur `main`** : la Partie 2 est
-terminée (Q2.1 à Q2.4), seul le bonus Q2.5 (intégrité référentielle : comptage des
-`user_id` / `product_id` / `merchant_id` orphelins) reste optionnel. Ajouté le 04/10/2026 :
+terminée (Q2.1 à Q2.4) et le bonus Q2.5 est réalisé le 09/10/2026 (le rapport de qualité
+compte les transactions dont `user_id`, `product_id` ou `merchant_id` est absent du
+référentiel : 3 colonnes `*_orphelins`, 0 hors ligne `transactions`). Ajouté le 04/10/2026 :
 tout le guide Git de l'équipe est désormais dans la section « Travail sur GitHub » du
 `README.md` (fusion de l'ancien `GITHUB.md`).
 
