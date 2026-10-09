@@ -44,7 +44,7 @@ fi
 exit 0
 '@
 
-# Un script sh ne doit pas contenir de CRLF : on force des fins de ligne LF.
+# Windows ecrit des fins de ligne que Git Bash ne comprend pas : on ecrit des fins de ligne simples.
 $content = $content -replace "`r`n", "`n"
 [System.IO.File]::WriteAllText($hookPath, $content, (New-Object System.Text.UTF8Encoding($false)))
 
