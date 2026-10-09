@@ -162,12 +162,20 @@ retrait de `tools/` → `[success]` en 75 s.
   écriture) envoyée le 03/10/2026 ; une fois acceptée :
   `git clone https://github.com/JO415boss/EcommerceAnalytics.git` puis
   `git pull origin main` avant de commencer.
-- 09/10/2026 : livraison des Parties 4, 5 et 6 (`Analytics.scala`,
+- 09/10/2026 à 12h19 : livraison des Parties 4, 5 et 6 (`Analytics.scala`,
   `SparkOptimizations.scala`, `MainApp.scala`) ; `sbt compile` validé sur les
   12 fichiers Scala (commit `d807337`). Exécution modulaire :
   `run-sbt.cmd "run [ingestion|transformation|analytics|all]"`.
-- Heures travaillées : travail commencé en local le 09/10/2026 (lecture du
-  dépôt, Parties 4 à 6, compilation) — environ 2 h.
+  Choix techniques : KPI marchands en `left` depuis le référentiel pour garder
+  les marchands sans vente ; un seul cache du DataFrame enrichi partagé par
+  tous les KPI ; mesure du gain (Q5.3) faite **avant** le cache, pour comparer
+  un calcul froid et un calcul chaud ; CSV des transactions enrichies non
+  coalescé (≈ 138 000 lignes) pour éviter un seul fichier trop gros.
+- Heures travaillées : session du 09/10/2026, de 11h36 à 12h47 environ
+  (lecture du dépôt, Parties 4 à 6, compilation) — environ 2 h.
+- 09/10/2026 à 12h47 : mise à jour de cette section (commit `5abc029`).
+- 09/10/2026 à 13h07 : ajout des commentaires sur les choix techniques ci-dessus
+  (suite de la discussion de relecture).
 - Difficultés rencontrées : aucune bloquante ; premier `sbt compile` ≈ 6 min
   (téléchargement des dépendances) ; dossier `data/` non versionné sur ce
   clone, exécution réelle à faire sur un poste qui a les données.
