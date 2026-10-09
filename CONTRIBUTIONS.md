@@ -69,13 +69,16 @@ Chacun ne modifie que ses propres fichiers (règle anti-conflit du sujet) :
   `b924ccf`) ; **06/10 : ≈ 1 h** (`git pull` de synchronisation, relecture de
   la Partie 3, état du README) ; **09/10 : ≈ 2 h** (correctif `users.json`,
   commentaires simplifiés, bonus Q2.5, exécution sur les vraies données).
-  **Total : ≈ 12 h** (Question 0.3). Les commits et le push GitHub n'ont
+  **Total : ≈ 13 h** (Question 0.3). Les commits et le push GitHub n'ont
   fonctionné normalement qu'à partir du samedi 04/10.
 - 09/10/2026 : correctif appliqué sur la lecture de `users.json` (champ `age`)
   suite à la relecture de la Partie 2 ; commentaires de mes fichiers rendus
   plus simples ; bonus Q2.5 ajouté au rapport de qualité ; `--add-opens` ajoutés
   à `build.sbt` pour Java 17 ; données décompressées puis ingestion, validation,
-  rapport et rejets exécutés sur les vraies données (138 047 transactions).
+  rapport et rejets exécutés sur les vraies données (138 047 transactions) ;
+  relecture de la Partie 5 (membre C) effectuée et inscrite au tableau des
+  relectures ; compilation du projet complet vérifiée après intégration des
+  Parties 4-6 du membre C.
 - Difficultés rencontrées : configuration GitHub (plus gros problème) —
   identité des commits (`JO415boss` vs `Joseph N SADIO`, config globale vs
   locale), premier push et synchronisation de `main` ; résolu le samedi.
@@ -221,6 +224,6 @@ Chaque relecture doit être inscrite ici après avoir été effectuée : date, r
 | Partie 2 | Membre A | Membre B |07/10/2026 | Revu : Q2.1 - schéma explicite (transactions), inféré (merchants), Parquet (products), try-catch avec affichage des lignes lues, chemins lus dans application.conf avec valeurs par défaut ; Q2.2 - règles conformes au sujet, rejection_reason avec plusieurs raisons séparées par concat_ws, preferred_categories converti en chaîne pour le CSV des rejets, seuils externalisés ; Q2.4 - countNulls toutes colonnes confondues. Remarque bloquante : sur les vraies données, readUsers échoue (Cannot up cast age from BIGINT to INT), le dataset users est vide ; correction proposée : cast("int") sur age avant .as[User]. Remarque mineure : une valeur nulle de amount est étiquetée "amount <= 0". À vérifier : arrondi de taux_rejet et fichier CSV unique. Mise à jour du 09/10/2026 (membre A) : cast sur `age` appliqué (commit `07a3e96`) puis lecture users validée sur les vraies données (12 000 lignes) ; `taux_rejet` arrondi à 2 décimales et rapport en CSV unique confirmés sur l'exécution du 09/10 ; seule reste la remarque mineure (montant nul étiqueté `amount <= 0`). |
 | Partie 3 | Membre B | Membre A | 06/10/2026 | Revu le 06/10/2026 (TimeFeatures.scala, DataTransformation.scala) : Q3.1 — fonction extract pure, null et longueur != 14 gérés, Locale.ENGLISH figé (résultats déterministes) ; Q3.2 — colonnes homonymes renommées avant les jointures left, struct time_features éclatée ; Q3.3 — fenêtre range -7 jours sur timestamp casté en long, collect_set + size à la place de countDistinct (interdit en fenêtre), lag et datediff. sbt compile vert le 06/10/2026 sur les 9 fichiers Scala. À confirmer lors de l'intégration : frontière age_group à 25 ans (classée Adulte, documentée dans le code) et product.category non retenue dans les colonnes finales. |
 | Partie 4 | Membre C | Membre B | à faire | |
-| Partie 5 | Membre C | Membres A et B | à faire | |
+| Partie 5 | Membre C | Membres A et B | 09/10/2026 (membre A) | Revue par le membre A le 09/10/2026 (`SparkOptimizations.scala` + intégration dans `MainApp.scala`) : Q5.1 — cache `MEMORY_AND_DISK` activable par `app.optimization.enable-cache` via `ConfigLoader`, `unpersist` bien appelé après usage ; Q5.2 — hint `broadcast` sur le référentiel marchands, activable par `app.optimization.enable-broadcast` ; Q5.3 — mesure best-of-2 (bruit limité), cache matérialisé hors chronométrage, `gain_pct` arrondi à 2 décimales et limites honnêtement documentées, résultats écrits en CSV + Parquet via l'objet commun. Les deux interrupteurs passent par `application.conf` (Q7.1 respecté) ; compilation intégrée verte sur les 12 fichiers Scala. Aucune remarque bloquante. Mineur : la mesure Q5.3 chronomètre des actions de comptage uniques, le gain du cache y est structurellement sous-estimé — le code le documente déjà. Relecture du membre B à inscrire. |
 | Partie 6 | Membre C | Les 3 membres (intégration) | à faire | |
 | Partie 7 | Membre A | Membre C | 09/10/2026 | Revu le 09/10/2026 avant d'écrire les Parties 4-6 (application.conf, ConfigLoader, SparkSessionBuilder) : configuration externalisée conforme Q7.1 (chemins data/output, spark, optimization, validation), valeurs par défaut dans ConfigLoader, SparkSessionBuilder construite uniquement depuis application.conf (aucune valeur en dur) ; les clés app.optimization.* sont bien consommées par DataTransformation et par mes fichiers (Q5.1/Q5.2). Aucune remarque bloquante. Mineure : shuffle.partitions = 8 à ajuster sur cluster. |
