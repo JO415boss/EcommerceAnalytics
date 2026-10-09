@@ -17,7 +17,7 @@ Responsables et relecteurs imposés par le sujet (Questions 0.1 et 0.3) :
 
 Questions bonus (facultatives, à ne traiter qu'après le tronc commun) :
 
-- Q2.5 (intégrité référentielle) → Membre A
+- Q2.5 (intégrité référentielle) → Membre A (réalisé le 09/10/2026)
 - Q3.4 (transactions suspectes) → Membre B
 - Q4.3 (RFM), Q4.4 (produits/catégories), Q5.3 (gain des optimisations), Q6.2 (exécution modulaire) → Membre C
 
@@ -47,7 +47,7 @@ Chacun ne modifie que ses propres fichiers (règle anti-conflit du sujet) :
 - Rôle (Question 0.1) : Parties 1, 2 et 7 – structure SBT, `build.sbt`, case
   classes, `DataIngestion.scala`, validations, rapport de qualité des données,
   `application.conf`, `README.md`.
-- Questions : Q1.1 à Q1.3, Q2.1 à Q2.4, Q7.1 ; bonus Q2.5. Relecteur de la Partie 3.
+- Questions : Q1.1 à Q1.3, Q2.1 à Q2.4, Q7.1 ; bonus Q2.5 réalisé le 09/10/2026. Relecteur de la Partie 3.
 - Mise en place GitHub : dépôt distant, `.gitignore`, identité Git, poussée
   initiale des documents de suivi (détail dans la section « Travail sur GitHub »
   du `README.md`).
@@ -79,11 +79,17 @@ Chacun ne modifie que ses propres fichiers (règle anti-conflit du sujet) :
 - Difficultés rencontrées : configuration GitHub (plus gros problème) —
   identité des commits (`JO415boss` vs `Joseph N SADIO`, config globale vs
   locale), premier push et synchronisation de `main` ; résolu le samedi.
+  Côté technique : Spark plantait au démarrage sous Java 17 (options
+  `--add-opens` ajoutées à `build.sbt`) et le champ `age` de `users.json`
+  était lu en BIGINT alors que la case class attend un entier (corrigé après
+  la relecture de la Partie 2).
 
 **Prêt pour le membre B** : le clone, `run-sbt.cmd compile` et toutes les
 commandes Git décrites dans le `README.md` ont été testés sur le
 poste du membre A ; il ne manque que le point d'entrée `MainApp` (fichier 6,
-Membre C) puis l'écriture des questions par chacun.
+Membre C) puis l'écriture des questions par chacun. Depuis le 09/10/2026, les
+Parties 1, 2 et 7 s'exécutent aussi sur les vraies données (`output/` contient
+le rapport qualité et les 4 rejets en CSV et Parquet).
 
 #### Fichiers créés par le membre A (cadence : un seul fichier à la fois, 1 fichier = 1 commit)
 
@@ -91,17 +97,17 @@ Membre C) puis l'écriture des questions par chacun.
 |---|---|---|---|---|
 | 1 | `project/build.properties` | épingle sbt 1.9.9 pour tous les membres | 03/10/2026 | `d301bba` |
 | 2 | `project/plugins.sbt` | plugin sbt-assembly (livraison d'un JAR unique) | 03/10/2026 | `2948b1c` |
-| 3 | `build.sbt` | socle : Scala 2.13.12, Spark 3.5.1, Typesafe Config, exclusions assembly | 03/10/2026 | `51c2779` |
+| 3 | `build.sbt` | socle : Scala 2.13.12, Spark 3.5.1, Typesafe Config, exclusions assembly ; options Java 17 (`--add-opens`) ajoutées le 09/10/2026 | 03/10/2026 | `51c2779` |
 | 4 | `run-sbt.cmd` | lance sbt avec `HADOOP_HOME` (natives Windows) | 03/10/2026 | `f911d76` |
 | 5 | `src/main/resources/application.conf` | chemins d'entrée `data/...` et sortie `output/` (Q7.1) | 03/10/2026 | `76c4520` |
 | 6 | `src/main/resources/application.conf` (mise à jour) | config complète Q7.1 : spark, optimization, validation | 04/10/2026 | `31ed40f` |
-| 7 | `models/DataModels.scala` | case classes Transaction/User/Product/Merchant + QualityReportRow (Q2.1, Q2.4) | 04/10/2026 | `664703f` |
+| 7 | `models/DataModels.scala` | case classes Transaction/User/Product/Merchant + QualityReportRow (Q2.1, Q2.4, bonus Q2.5) | 04/10/2026 | `664703f` |
 | 8 | `utils/ConfigLoader.scala` | chargement application.conf + valeurs par defaut (Q7.1) | 04/10/2026 | `4acb184` |
 | 9 | `utils/SparkSessionBuilder.scala` | SparkSession depuis application.conf (Q6.1/Q7.1) | 04/10/2026 | `80264e2` |
 | 10 | `utils/DataFrameWriterUtils.scala` | double écriture CSV+Parquet, rapport qualité fichier unique (Q1.1/Q2.4) | 04/10/2026 | `d240c79` |
 | 11 | `analytics/DataIngestion.scala` | lectures CSV/JSON/Parquet typées Dataset[T] + try-catch (Q2.1/Q2.3) | 04/10/2026 | `80b08fd` |
 | 12 | `analytics/DataValidation.scala` | règles Q2.2, (valides, rejetés + rejection_reason) (Q2.2/Q2.3) | 04/10/2026 | `972bb25` |
-| 13 | `analytics/DataQualityReport.scala` | rapport qualité Q2.4 + écriture des 4 rejets (Q2.2/Q2.4) | 04/10/2026 | `6261546` |
+| 13 | `analytics/DataQualityReport.scala` | rapport qualité Q2.4 + écriture des 4 rejets (Q2.2/Q2.4) + bonus Q2.5 (colonnes orphelins, 09/10/2026) | 04/10/2026 | `6261546` |
 | 14 | `README.md` | sections Q1.3 (prérequis, compilation, exécution, spark-submit) + état | 04/10/2026 | `edb205e` |
 
 **Les 14 fichiers du tableau ci-dessus sont tous poussés sur `main`** : la Partie 2 est
@@ -121,6 +127,13 @@ est passé avec succès le 03/10/2026** puis à nouveau le 04/10/2026 (`.\run-sb
 été **validé par une exécution réelle** (`.\run-sbt.cmd compile` -> `[success]`
 le 03/10/2026) ; à noter : ce launcher sbt accepte ni `-batch` ni `-no-colors`,
 il faut invoquer directement `sbt compile` (ou `run-sbt.cmd compile`).
+
+Validation finale du 09/10/2026 : `.\run-sbt.cmd compile` → `[success]`,
+puis exécution complète des Parties 1 et 2 sur les vraies données (138 047
+transactions lues, rapport qualité aux 9 colonnes dont les 3 du bonus Q2.5,
+8 fichiers de rejets CSV + Parquet dans `output/`) ; re-compilation après le
+retrait de `tools/` → `[success]` en 75 s.
+
 ### Membre B – SECK Mamour – Data Transformation Engineer
 
 - Rôle (Question 0.1) : Partie 3 – UDF `extractTimeFeatures` (Q3.1), fonction
@@ -181,7 +194,7 @@ Chaque relecture doit être inscrite ici après avoir été effectuée : date, r
 | Partie | Auteur (responsable) | Relecteur prévu | Date | Remarques |
 |---|---|---|---|---|
 | Partie 1 | Membre A | Membre C | à faire | |
-| Partie 2 | Membre A | Membre B |07/10/2026 | Revu : Q2.1 - schéma explicite (transactions), inféré (merchants), Parquet (products), try-catch avec affichage des lignes lues, chemins lus dans application.conf avec valeurs par défaut ; Q2.2 - règles conformes au sujet, rejection_reason avec plusieurs raisons séparées par concat_ws, preferred_categories converti en chaîne pour le CSV des rejets, seuils externalisés ; Q2.4 - countNulls toutes colonnes confondues. Remarque bloquante : sur les vraies données, readUsers échoue (Cannot up cast age from BIGINT to INT), le dataset users est vide ; correction proposée : cast("int") sur age avant .as[User]. Remarque mineure : une valeur nulle de amount est étiquetée "amount <= 0". À vérifier : arrondi de taux_rejet et fichier CSV unique. |
+| Partie 2 | Membre A | Membre B |07/10/2026 | Revu : Q2.1 - schéma explicite (transactions), inféré (merchants), Parquet (products), try-catch avec affichage des lignes lues, chemins lus dans application.conf avec valeurs par défaut ; Q2.2 - règles conformes au sujet, rejection_reason avec plusieurs raisons séparées par concat_ws, preferred_categories converti en chaîne pour le CSV des rejets, seuils externalisés ; Q2.4 - countNulls toutes colonnes confondues. Remarque bloquante : sur les vraies données, readUsers échoue (Cannot up cast age from BIGINT to INT), le dataset users est vide ; correction proposée : cast("int") sur age avant .as[User]. Remarque mineure : une valeur nulle de amount est étiquetée "amount <= 0". À vérifier : arrondi de taux_rejet et fichier CSV unique. Mise à jour du 09/10/2026 (membre A) : cast sur `age` appliqué (commit `07a3e96`) puis lecture users validée sur les vraies données (12 000 lignes) ; `taux_rejet` arrondi à 2 décimales et rapport en CSV unique confirmés sur l'exécution du 09/10 ; seule reste la remarque mineure (montant nul étiqueté `amount <= 0`). |
 | Partie 3 | Membre B | Membre A | 06/10/2026 | Revu le 06/10/2026 (TimeFeatures.scala, DataTransformation.scala) : Q3.1 — fonction extract pure, null et longueur != 14 gérés, Locale.ENGLISH figé (résultats déterministes) ; Q3.2 — colonnes homonymes renommées avant les jointures left, struct time_features éclatée ; Q3.3 — fenêtre range -7 jours sur timestamp casté en long, collect_set + size à la place de countDistinct (interdit en fenêtre), lag et datediff. sbt compile vert le 06/10/2026 sur les 9 fichiers Scala. À confirmer lors de l'intégration : frontière age_group à 25 ans (classée Adulte, documentée dans le code) et product.category non retenue dans les colonnes finales. |
 | Partie 4 | Membre C | Membre B | à faire | |
 | Partie 5 | Membre C | Membres A et B | à faire | |
