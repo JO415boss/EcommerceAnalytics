@@ -40,7 +40,7 @@ function Get-MarkdownFiles([string]$Root, [string[]]$Extra) {
 }
 
 function Get-ColumnCount([string]$Line) {
-  # Un tuyau echappe (\|) appartient au contenu de la cellule : il ne separe pas.
+  # Un signe | ecrit avec barre inverse appartient au contenu de la cellule : il ne separe pas.
   $segments = [regex]::Split($Line, '(?<!\\)\|')
   return $segments.Count
 }
