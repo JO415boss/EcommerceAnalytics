@@ -228,6 +228,8 @@ section **« Travail sur GitHub »** ci-dessus (l'ancien `GITHUB.md` y a été f
   produiront un exécutable qu'une fois le point d'entrée ajouté.
 - ✅ `sbt compile` validé le 06/10/2026 sur les 9 fichiers Scala du projet
   (7 du membre A, 2 du membre B).
+- ✅ 09/10/2026 : lecture de `users.json` corrigée (relecture de la Partie 2)
+  et commentaires du code du membre A rendus plus simples.
 
 ## Règles du groupe
 
