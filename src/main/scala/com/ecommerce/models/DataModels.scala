@@ -1,8 +1,8 @@
 package com.ecommerce.models
 
-/** Case classes des quatre jeux de donnees (Q2.1).
+/** Structure des quatre jeux de donnees (Q2.1).
   * Les champs suivent exactement la partie DESCRIPTION DES DONNEES du sujet.
-  * Les lectures typent avec ces classes pour obtenir des Dataset[T].
+  * Chaque ligne lue devient un objet de ce type, plus facile a utiliser.
   */
 final case class Transaction(
     transaction_id: String,
