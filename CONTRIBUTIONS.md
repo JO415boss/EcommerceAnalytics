@@ -171,14 +171,23 @@ retrait de `tools/` → `[success]` en 75 s.
   tous les KPI ; mesure du gain (Q5.3) faite **avant** le cache, pour comparer
   un calcul froid et un calcul chaud ; CSV des transactions enrichies non
   coalescé (≈ 138 000 lignes) pour éviter un seul fichier trop gros.
-- Heures travaillées : session du 09/10/2026, de 11h36 à 12h47 environ
-  (lecture du dépôt, Parties 4 à 6, compilation) — environ 2 h.
+- Heures travaillées : sessions du 09/10/2026 — 11h36 à 12h47 (lecture du
+  dépôt, Parties 4 à 6, compilation) puis 13h50 à 15h30 (exécution sur les
+  vraies données, corrections Q5.2/Q5.3, re-run) — environ 3 h au total.
 - 09/10/2026 à 12h47 : mise à jour de cette section (commit `5abc029`).
 - 09/10/2026 à 13h07 : ajout des commentaires sur les choix techniques ci-dessus
   (suite de la discussion de relecture).
+- 09/10/2026 à 15h24 : pipeline complet exécuté sur les vraies données
+  (138 047 transactions lues / 136 157 valides ; 12 000 users, 6 000 produits,
+  600 marchands) — toutes les sorties écrites dans `output/` (CSV + Parquet).
+  Deux corrections issues du run (commit `d43cf1d`) : hint broadcast déplacé
+  sur le côté droit de la jointure gauche (Q5.2 — Spark ignorait le hint à
+  gauche) et mesure Q5.3 en best-of-2 avec matérialisation du cache.
+  Gains mesurés : cache **+78 %**, broadcast **+73 %**.
 - Difficultés rencontrées : aucune bloquante ; premier `sbt compile` ≈ 6 min
-  (téléchargement des dépendances) ; dossier `data/` non versionné sur ce
-  clone, exécution réelle à faire sur un poste qui a les données.
+  (téléchargement des dépendances) ; hint broadcast initial ignoré par Spark
+  et mesure à froid unique bruitée sur cette VM (RAM limitée) — toutes deux
+  corrigées comme indiqué ci-dessus.
 
 ## Décisions techniques du groupe
 
