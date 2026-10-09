@@ -45,12 +45,17 @@ final case class Merchant(
     establishment_date: String
 )
 
-/** Une ligne du rapport de qualite des donnees (Q2.4). */
+/** Une ligne du rapport de qualite des donnees (Q2.4).
+  * Les trois derniers compteurs viennent du bonus Q2.5 (identifiants orphelins).
+  */
 final case class QualityReportRow(
     dataset: String,
     nb_lignes_lues: Long,
     nb_lignes_valides: Long,
     nb_lignes_rejetees: Long,
     taux_rejet: Double,
-    nb_valeurs_nulles: Long
+    nb_valeurs_nulles: Long,
+    nb_user_id_orphelins: Long = 0,
+    nb_product_id_orphelins: Long = 0,
+    nb_merchant_id_orphelins: Long = 0
 )
