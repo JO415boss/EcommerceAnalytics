@@ -21,7 +21,7 @@ segmentation RFM, top produits et ventes par catégorie. Tout est piloté par
 ```bash
 run-sbt.cmd compile     # compiler
 run-sbt.cmd test        # lancer les tests
-run-sbt.cmd assembly    # générer le JAR exécutable (target/scala-2.13/*.jar)
+run-sbt.cmd assembly    # générer le JAR exécutable (target/scala-2.13/EcommerceAnalytics-assembly-1.0.0.jar)
 run-sbt.cmd "run"       # pipeline complet, en mode local[*]
 ```
 
@@ -39,11 +39,18 @@ n'est codée en dur (Q7.1).
 
 ## Déploiement sur cluster (Q1.3)
 
+Le JAR à soumettre est le JAR **assembly** (`target/scala-2.13/EcommerceAnalytics-assembly-1.0.0.jar`) :
+il est allégé (Spark, Hadoop et scala-library exclus, fournis par le cluster) mais il
+embarque bien `com.typesafe:config`, nécessaire à la lecture d'`application.conf`.
+
 ```bash
-# Le JAR est allégé (Spark/Hadoop exclus, fournis par le cluster) :
 spark-submit --class com.ecommerce.analytics.MainApp --master yarn \
-  target/scala-2.13/ecommerceanalytics_2.13-1.0.0.jar
+  target/scala-2.13/EcommerceAnalytics-assembly-1.0.0.jar
 ```
+
+> Ne pas soumettre `target/scala-2.13/ecommerceanalytics_2.13-1.0.0.jar` (JAR « package »,
+> produit par `sbt package`) : il ne contient que les classes du projet, sans la
+> bibliothèque Typesafe Config, et échouerait à l'exécution sur le cluster.
 
 ## Données et sorties
 

@@ -44,55 +44,37 @@ Chacun ne modifie que ses propres fichiers (règle anti-conflit du sujet) :
 
 ### Membre A – Joseph N SADIO (depuis le 03/10/2026) – Data Ingestion & Platform Engineer
 
-- Rôle (Question 0.1) : Parties 1, 2 et 7 – structure SBT, `build.sbt`, case
-  classes, `DataIngestion.scala`, validations, rapport de qualité des données,
-  `application.conf`, `README.md`.
-- Questions : Q1.1 à Q1.3, Q2.1 à Q2.4, Q7.1 ; bonus Q2.5 réalisé le 09/10/2026. Relecteur de la Partie 3.
-- Mise en place GitHub : dépôt distant, `.gitignore`, identité Git, poussée
-  initiale des documents de suivi (détail dans la section « Travail sur GitHub »
-  du `README.md`).
-- Documentation : `README.md` (Q1.3), `EQUIPE.md`, `CONTRIBUTIONS.md` –
-  `README.md` réécrit en version simple le 03/10/2026
-  (commit `52a3ba5`) pour permettre au membre B de démarrer seul, puis enrichi
-  le 04/10/2026 de tout le guide Git (l'ancien `GITHUB.md` y a été fusionné pour
-  supprimer un doublon documentaire, Q8.1). La Partie 8 reste un livrable
-  collectif.
-- Construction du socle du projet (fichiers 1 à 5 du tableau ci-dessous),
-  chacun validé avant d'être poussé.
-- Outillage de vérification personnel (04/10 → 09/10/2026) : deux scripts `tools/`
-  qui contrôlaient les tableaux Markdown avant les commits ; ils ne font pas partie
-  du projet et ont été retirés du dépôt avant la livraison.
-- Heures travaillées (estimation honnête, d'après les sessions visibles dans
-  `git log`) : **03–04/10 : ≈ 8 h** (socle du projet et Partie 2, sessions du
-  03/10 16h24 au 04/10 02h26 UTC puis du 04/10 10h42 à 13h29) ; **05/10 :
-  ≈ 1 h** (harmonisation des documents de suivi, commits `77d83e6` et
-  `b924ccf`) ; **06/10 : ≈ 1 h** (`git pull` de synchronisation, relecture de
-  la Partie 3, état du README) ; **09/10 : ≈ 2 h** (correctif `users.json`,
-  commentaires simplifiés, bonus Q2.5, exécution sur les vraies données).
-  **Total : ≈ 13 h** (Question 0.3). Les commits et le push GitHub n'ont
-  fonctionné normalement qu'à partir du samedi 04/10.
-- 09/10/2026 : correctif appliqué sur la lecture de `users.json` (champ `age`)
-  suite à la relecture de la Partie 2 ; commentaires de mes fichiers rendus
-  plus simples ; bonus Q2.5 ajouté au rapport de qualité ; `--add-opens` ajoutés
-  à `build.sbt` pour Java 17 ; données décompressées puis ingestion, validation,
-  rapport et rejets exécutés sur les vraies données (138 047 transactions) ;
-  relecture de la Partie 5 (membre C) effectuée et inscrite au tableau des
-  relectures ; compilation du projet complet vérifiée après intégration des
-  Parties 4-6 du membre C.
-- Difficultés rencontrées : configuration GitHub (plus gros problème) —
-  identité des commits (`JO415boss` vs `Joseph N SADIO`, config globale vs
-  locale), premier push et synchronisation de `main` ; résolu le samedi.
-  Côté technique : Spark plantait au démarrage sous Java 17 (options
-  `--add-opens` ajoutées à `build.sbt`) et le champ `age` de `users.json`
-  était lu en BIGINT alors que la case class attend un entier (corrigé après
-  la relecture de la Partie 2).
+**Rôle (Question 0.1)** : Parties 1, 2 et 7 — structure SBT, `build.sbt`, case
+classes, `DataIngestion.scala`, `DataValidation.scala`, `DataQualityReport.scala`,
+`application.conf`, `README.md`.
 
-**Prêt pour le membre B** : le clone, `run-sbt.cmd compile` et toutes les
-commandes Git décrites dans le `README.md` ont été testés sur le
-poste du membre A ; il ne manque que le point d'entrée `MainApp` (fichier 6,
-Membre C) puis l'écriture des questions par chacun. Depuis le 09/10/2026, les
-Parties 1, 2 et 7 s'exécutent aussi sur les vraies données (`output/` contient
-le rapport qualité et les 4 rejets en CSV et Parquet).
+**Questions traitées** : Q1.1 à Q1.3, Q2.1 à Q2.4, Q7.1 ; bonus Q2.5 (09/10/2026).
+Relecteur des Parties 3 et 5.
+
+**Heures travaillées (Question 0.3, estimation honnête d'après `git log`)** :
+03–04/10 ≈ 8 h (socle SBT + Partie 2) ; 05/10 ≈ 1 h ; 06/10 ≈ 1 h ;
+09/10 ≈ 3 h (correctif `users.json`, bonus Q2.5, `--add-opens`, exécution
+complète du pipeline sur les vraies données, relecture de la Partie 5).
+**Total ≈ 13 h.**
+
+**Difficultés rencontrées** :
+1. GitHub — identité des commits (`JO415boss` vs `Joseph N SADIO`, config globale
+   vs locale) et premier push ; résolu le 04/10/2026.
+2. Spark qui plantait au démarrage sous Java 17 → options `--add-opens` ajoutées
+   à `build.sbt` (commit `16b6297`).
+3. Champ `age` de `users.json` lu en BIGINT alors que la case class attend un
+   `Int` (remonté par le membre B lors de la relecture de la Partie 2) →
+   `cast("int")` ajouté dans `DataIngestion` (commit `07a3e96`).
+
+**Livraison** : 14 fichiers poussés sur `main`, un fichier = un commit
+(tableau ci-dessous). Mise en place du dépôt distant, `.gitignore`, identité Git
+et poussée initiale des documents de suivi ; le guide Git de l'équipe est dans
+la section « Travail sur GitHub » du `README.md`.
+
+**État au 09/10/2026** : `sbt compile` vert, puis exécution complète du pipeline
+(`run` + `test`, 47 min) sur les vraies données — 138 047 transactions lues,
+136 157 valides, rapport qualité à 9 colonnes (dont les 3 du bonus Q2.5) et
+11 résultats écrits en CSV + Parquet dans `output/`.
 
 #### Fichiers créés par le membre A (cadence : un seul fichier à la fois, 1 fichier = 1 commit)
 
@@ -120,22 +102,10 @@ référentiel : 3 colonnes `*_orphelins`, 0 hors ligne `transactions`). Ajouté 
 tout le guide Git de l'équipe est désormais dans la section « Travail sur GitHub » du
 `README.md` (fusion de l'ancien `GITHUB.md`).
 
-Validation du fichier 5 : les 4 chemins d'entrée référencés
-(`data/transactions.csv`, `data/users.json`, `data/products.parquet`,
-`data/merchants.csv`) ont été vérifiés existants sur le poste.
-
-Validation : le fichier 3 a été corrigé (petit problème de nom de fichier sous sbt-assembly, commit `cc07aeb`) puis **`sbt compile`
-est passé avec succès le 03/10/2026** puis à nouveau le 04/10/2026 (`.\run-sbt.cmd compile` → `[success]` en 46 s) avec les 7 fichiers Scala du membre A (models, 3 utils, DataIngestion, DataValidation) – `build.sbt`, `project/plugins.sbt` et
-`project/build.properties` sont donc validés ensemble. Le fichier 4 a lui aussi
-été **validé par une exécution réelle** (`.\run-sbt.cmd compile` -> `[success]`
-le 03/10/2026) ; à noter : ce launcher sbt accepte ni `-batch` ni `-no-colors`,
-il faut invoquer directement `sbt compile` (ou `run-sbt.cmd compile`).
-
-Validation finale du 09/10/2026 : `.\run-sbt.cmd compile` → `[success]`,
-puis exécution complète des Parties 1 et 2 sur les vraies données (138 047
-transactions lues, rapport qualité aux 9 colonnes dont les 3 du bonus Q2.5,
-8 fichiers de rejets CSV + Parquet dans `output/`) ; re-compilation après le
-retrait de `tools/` → `[success]` en 75 s.
+**Validation** : `sbt compile` vert à chaque étape (03/10, 04/10, 09/10/2026) ;
+les 4 chemins d'entrée d'`application.conf` vérifiés existants sur le poste ;
+Parties 1, 2 et 7 exécutées sur les vraies données le 09/10/2026 (rapport
+qualité à 9 colonnes, rejets CSV + Parquet dans `output/`).
 
 ### Membre B – SECK Mamour – Data Transformation Engineer
 
@@ -225,5 +195,5 @@ Chaque relecture doit être inscrite ici après avoir été effectuée : date, r
 | Partie 3 | Membre B | Membre A | 06/10/2026 | Revu le 06/10/2026 (TimeFeatures.scala, DataTransformation.scala) : Q3.1 — fonction extract pure, null et longueur != 14 gérés, Locale.ENGLISH figé (résultats déterministes) ; Q3.2 — colonnes homonymes renommées avant les jointures left, struct time_features éclatée ; Q3.3 — fenêtre range -7 jours sur timestamp casté en long, collect_set + size à la place de countDistinct (interdit en fenêtre), lag et datediff. sbt compile vert le 06/10/2026 sur les 9 fichiers Scala. À confirmer lors de l'intégration : frontière age_group à 25 ans (classée Adulte, documentée dans le code) et product.category non retenue dans les colonnes finales. |
 | Partie 4 | Membre C | Membre B | à faire | |
 | Partie 5 | Membre C | Membres A et B | 09/10/2026 (membre A) | Revue par le membre A le 09/10/2026 (`SparkOptimizations.scala` + intégration dans `MainApp.scala`) : Q5.1 — cache `MEMORY_AND_DISK` activable par `app.optimization.enable-cache` via `ConfigLoader`, `unpersist` bien appelé après usage ; Q5.2 — hint `broadcast` sur le référentiel marchands, activable par `app.optimization.enable-broadcast` ; Q5.3 — mesure best-of-2 (bruit limité), cache matérialisé hors chronométrage, `gain_pct` arrondi à 2 décimales et limites honnêtement documentées, résultats écrits en CSV + Parquet via l'objet commun. Les deux interrupteurs passent par `application.conf` (Q7.1 respecté) ; compilation intégrée verte sur les 12 fichiers Scala. Aucune remarque bloquante. Mineur : la mesure Q5.3 chronomètre des actions de comptage uniques, le gain du cache y est structurellement sous-estimé — le code le documente déjà. Relecture du membre B à inscrire. |
-| Partie 6 | Membre C | Les 3 membres (intégration) | à faire | |
+| Partie 6 | Membre C | Les 3 membres (intégration) | 09/10/2026 (membre A) | Intégration validée par le membre A le 09/10/2026 : `run-sbt.cmd run test` exécuté en entier sur les vraies données (47 min, `[success]`) — les 11 résultats écrits deux fois (CSV + Parquet) dans `output/`, rapport qualité en CSV unique, SparkContext arrêté proprement ; aucun doublon de nom de sortie entre les modules ; `MainApp` n'appelle que les objets communs (`ConfigLoader`, `SparkSessionBuilder`, `DataFrameWriterUtils`) et les modules des 3 membres. Aucune remarque bloquante. |
 | Partie 7 | Membre A | Membre C | 09/10/2026 | Revu le 09/10/2026 avant d'écrire les Parties 4-6 (application.conf, ConfigLoader, SparkSessionBuilder) : configuration externalisée conforme Q7.1 (chemins data/output, spark, optimization, validation), valeurs par défaut dans ConfigLoader, SparkSessionBuilder construite uniquement depuis application.conf (aucune valeur en dur) ; les clés app.optimization.* sont bien consommées par DataTransformation et par mes fichiers (Q5.1/Q5.2). Aucune remarque bloquante. Mineure : shuffle.partitions = 8 à ajuster sur cluster. |
