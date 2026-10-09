@@ -1,5 +1,5 @@
-// Decisions techniques du groupe : CONTRIBUTIONS.md
-// (Scala 2.13.12, Spark 3.5.1, JAR via sbt-assembly avec exclusion Spark/Hadoop/Scala)
+// Versions choisies par le groupe : voir CONTRIBUTIONS.md
+// (Scala 2.13.12, Spark 3.5.1, JAR construit avec sbt-assembly).
 
 ThisBuild / organization := "com.ecommerce"
 ThisBuild / version      := "1.0.0"
@@ -11,9 +11,9 @@ lazy val root = (project in file("."))
   .settings(
     name := "EcommerceAnalytics",
 
-    // Spark en Compile pour `sbt run` et `sbt test` en local ; il est EXCLU du JAR
-    // final par assemblyExcludedJars (et non par un scope `provided`, qui casserait
-    // l'exécution locale) : voir CONTRIBUTIONS.md.
+    // Spark reste en Compile pour que "sbt run" et "sbt test" marchent en local.
+    // Il est retiré du JAR final : sur le cluster, Spark est déjà installé.
+    // Détails : CONTRIBUTIONS.md.
     libraryDependencies ++= Seq(
       "org.apache.spark" %% "spark-sql" % sparkVersion,
       "com.typesafe"     %  "config"    % "1.4.3",
