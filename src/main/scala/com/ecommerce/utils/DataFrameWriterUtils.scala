@@ -5,9 +5,9 @@ import org.apache.spark.sql.{DataFrame, SaveMode}
 
 /** Objet commun d'ecriture des resultats (Q1.1).
   * Chaque membre appelle ces fonctions plutot que de dupliquer le code :
-  * - writeCsvParquet(df, name, outputPath) : double ecriture
-  *   <output>/csv/<name>/ (header = true, coalesce(1) pour les petits
-  *   resultats) et <output>/parquet/<name>/, en mode overwrite.
+  * - writeCsvParquet(df, name, outputPath) : ecrit le resultat deux fois,
+  *   en CSV (dans <output>/csv/<name>/, en-tete comprise, un seul fichier)
+  *   et en Parquet (dans <output>/parquet/<name>/), en ecrasant l'ancien.
   * - writeQualityReport(df, outputPath, dateSuffix) : rapport de qualite
   *   (Q2.4) en un seul fichier CSV rapport_qualite_yyyymmdd.csv.
   */
