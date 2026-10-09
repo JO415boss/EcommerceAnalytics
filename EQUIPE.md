@@ -3,7 +3,7 @@
 | Nom    | Prénom | Code étudiant | Rôle (Question 0.1 du sujet) | Questions traitées |
 |--------|--------|---|---|---|
 | SADIO | Joseph Niaga (Joseph N) | 1510384 | Membre A – Data Ingestion & Platform Engineer | Q1.1 à Q1.3, Q2.1 à Q2.4, Q7.1 (bonus : Q2.5) ; Partie 8 en commun |
-| SECK | Mamour | à compléter | Membre B – Data Transformation Engineer | Q3.1 à Q3.3 (bonus : Q3.4) ; Partie 8 en commun |
+| SECK | Mamour | 1405548 | Membre B – Data Transformation Engineer | Q3.1 à Q3.3 (bonus : Q3.4) ; Partie 8 en commun |
 | SYLVA | Frederic | 1614003 | Membre C – Analytics & Performance Engineer | Q4.1, Q4.2, Q5.1, Q5.2, Q6.1 (bonus : Q4.3, Q4.4, Q5.3, Q6.2) ; Partie 8 en commun |
 
 ## Périmètre de chaque rôle (d'après le sujet)
