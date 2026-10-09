@@ -7,14 +7,14 @@ import org.apache.spark.sql.{Dataset, SparkSession}
 import org.apache.spark.sql.functions._
 
 /** Validation des quatre jeux de donnees (Q2.2).
-  * Chaque fonction renvoie (valides, rejetes) : les lignes rejetees ne sont
-  * jamais perdues, elles sont enrichies d'une colonne rejection_reason qui
-  * decrit la regle violee ; plusieurs raisons sont separees par " | ".
-  * Regles du sujet : transactions amount > 0 et timestamp de 14 caracteres ;
+  * Chaque fonction renvoie (valides, rejetes) : rien n'est perdu, chaque
+  * ligne rejetee porte une colonne rejection_reason qui explique pourquoi
+  * (plusieurs raisons possibles, separes par " | ").
+  * Regles du sujet : transactions montant > 0 et timestamp de 14 caracteres ;
   * users 16 <= age <= 100 et annual_income > 0 ; products price > 0 et
   * 1 <= rating <= 5 ; merchants 0 <= commission_rate <= 1.
-  * Les seuils viennent de application.conf (Q7.1) avec valeurs par defaut.
-  * Le nombre de lignes valides apres validation est affiche (Q2.3).
+  * Les seuils viennent de application.conf (Q7.1), avec defaut si absents.
+  * Le nombre de lignes valides est affiche (Q2.3).
   */
 class DataValidation(spark: SparkSession, conf: Config) {
 
