@@ -71,6 +71,9 @@ Chacun ne modifie que ses propres fichiers (règle anti-conflit du sujet) :
   `77d83e6` et `b924ccf`) puis 06/10/2026 (`git pull` de synchronisation,
   relecture de la Partie 3, mise à jour de l'état du README) ; heures à
   additionner ci-dessus avant la remise (Question 0.3).
+- 09/10/2026 : correctif appliqué sur la lecture de `users.json` (champ `age`)
+  suite à la relecture de la Partie 2, et commentaires de mes fichiers rendus
+  plus simples ; heures à additionner ci-dessus.
 - Difficultés rencontrées : configuration GitHub (plus gros problème) —
   identité des commits (`JO415boss` vs `Joseph N SADIO`, config globale vs
   locale), premier push et synchronisation de `main` ; résolu le samedi.
@@ -109,8 +112,7 @@ Validation du fichier 5 : les 4 chemins d'entrée référencés
 (`data/transactions.csv`, `data/users.json`, `data/products.parquet`,
 `data/merchants.csv`) ont été vérifiés existants sur le poste.
 
-Validation : le fichier 3 a été corrigé (`f.data.getName` au lieu de `f.getName`,
-type `Attributed[File]` de sbt-assembly, commit `cc07aeb`) puis **`sbt compile`
+Validation : le fichier 3 a été corrigé (petit problème de nom de fichier sous sbt-assembly, commit `cc07aeb`) puis **`sbt compile`
 est passé avec succès le 03/10/2026** puis à nouveau le 04/10/2026 (`.\run-sbt.cmd compile` → `[success]` en 46 s) avec les 7 fichiers Scala du membre A (models, 3 utils, DataIngestion, DataValidation) – `build.sbt`, `project/plugins.sbt` et
 `project/build.properties` sont donc validés ensemble. Le fichier 4 a lui aussi
 été **validé par une exécution réelle** (`.\run-sbt.cmd compile` -> `[success]`
