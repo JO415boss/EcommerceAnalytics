@@ -4,9 +4,9 @@ import com.typesafe.config.Config
 import org.apache.spark.sql.SparkSession
 
 /** Construction de la SparkSession (Partie 6, Q6.1).
-  * Tous les parametres Spark sont externalises dans application.conf (Q7.1) :
-  * master, shuffle partitions, cache et broadcast. Chaque valeur lue via
-  * ConfigLoader possede une valeur par defaut si la cle est absente.
+  * Tous les reglages de Spark viennent de application.conf (Q7.1) :
+  * machine utilisee et nombre de partitions. Chaque valeur a un
+  * defaut si la cle est absente du fichier.
   */
 object SparkSessionBuilder {
 
