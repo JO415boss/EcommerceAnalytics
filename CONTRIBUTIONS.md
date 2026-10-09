@@ -157,7 +157,7 @@ retrait de `tools/` → `[success]` en 75 s.
   Q5.3 (mesure du gain), Q6.2 (exécution modulaire).
 - Fichiers propriétaires : `Analytics.scala`, `SparkOptimizations.scala`,
   `MainApp.scala`.
-- Relecteur des Parties 1 et 7 (membre A).
+- Relecteur des Parties 1 et 7 (membre A) : relectures faites le 09/10/2026 avant d'écrire le code, inscrites dans le tableau « Relectures croisées ».
 - Compte GitHub : `sylvafrederic00-lang` – invitation en collaborateur (accès
   écriture) envoyée le 03/10/2026 ; une fois acceptée :
   `git clone https://github.com/JO415boss/EcommerceAnalytics.git` puis
@@ -208,10 +208,10 @@ Chaque relecture doit être inscrite ici après avoir été effectuée : date, r
 
 | Partie | Auteur (responsable) | Relecteur prévu | Date | Remarques |
 |---|---|---|---|---|
-| Partie 1 | Membre A | Membre C | à faire | |
+| Partie 1 | Membre A | Membre C | 09/10/2026 | Revu le 09/10/2026 avant d'écrire les Parties 4-6 (build.sbt, project/, run-sbt.cmd, arborescence src) : structure conforme Q1.1 (packages analytics / models / utils, un fichier par rôle) ; build.sbt épingle Scala 2.13.12 et Spark 3.5.1, --add-opens Java 17 et assembly/mainClass déjà en place ; run-sbt.cmd configure HADOOP_HOME sous Windows ; sbt compile vert. Aucune remarque bloquante. Mineure : shuffle.partitions = 8, réglage pensé pour le local — à ajuster sur cluster. |
 | Partie 2 | Membre A | Membre B |07/10/2026 | Revu : Q2.1 - schéma explicite (transactions), inféré (merchants), Parquet (products), try-catch avec affichage des lignes lues, chemins lus dans application.conf avec valeurs par défaut ; Q2.2 - règles conformes au sujet, rejection_reason avec plusieurs raisons séparées par concat_ws, preferred_categories converti en chaîne pour le CSV des rejets, seuils externalisés ; Q2.4 - countNulls toutes colonnes confondues. Remarque bloquante : sur les vraies données, readUsers échoue (Cannot up cast age from BIGINT to INT), le dataset users est vide ; correction proposée : cast("int") sur age avant .as[User]. Remarque mineure : une valeur nulle de amount est étiquetée "amount <= 0". À vérifier : arrondi de taux_rejet et fichier CSV unique. Mise à jour du 09/10/2026 (membre A) : cast sur `age` appliqué (commit `07a3e96`) puis lecture users validée sur les vraies données (12 000 lignes) ; `taux_rejet` arrondi à 2 décimales et rapport en CSV unique confirmés sur l'exécution du 09/10 ; seule reste la remarque mineure (montant nul étiqueté `amount <= 0`). |
 | Partie 3 | Membre B | Membre A | 06/10/2026 | Revu le 06/10/2026 (TimeFeatures.scala, DataTransformation.scala) : Q3.1 — fonction extract pure, null et longueur != 14 gérés, Locale.ENGLISH figé (résultats déterministes) ; Q3.2 — colonnes homonymes renommées avant les jointures left, struct time_features éclatée ; Q3.3 — fenêtre range -7 jours sur timestamp casté en long, collect_set + size à la place de countDistinct (interdit en fenêtre), lag et datediff. sbt compile vert le 06/10/2026 sur les 9 fichiers Scala. À confirmer lors de l'intégration : frontière age_group à 25 ans (classée Adulte, documentée dans le code) et product.category non retenue dans les colonnes finales. |
 | Partie 4 | Membre C | Membre B | à faire | |
 | Partie 5 | Membre C | Membres A et B | à faire | |
 | Partie 6 | Membre C | Les 3 membres (intégration) | à faire | |
-| Partie 7 | Membre A | Membre C | à faire | |
+| Partie 7 | Membre A | Membre C | 09/10/2026 | Revu le 09/10/2026 avant d'écrire les Parties 4-6 (application.conf, ConfigLoader, SparkSessionBuilder) : configuration externalisée conforme Q7.1 (chemins data/output, spark, optimization, validation), valeurs par défaut dans ConfigLoader, SparkSessionBuilder construite uniquement depuis application.conf (aucune valeur en dur) ; les clés app.optimization.* sont bien consommées par DataTransformation et par mes fichiers (Q5.1/Q5.2). Aucune remarque bloquante. Mineure : shuffle.partitions = 8 à ajuster sur cluster. |
