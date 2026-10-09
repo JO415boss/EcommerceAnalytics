@@ -162,22 +162,15 @@ retrait de `tools/` → `[success]` en 75 s.
   écriture) envoyée le 03/10/2026 ; une fois acceptée :
   `git clone https://github.com/JO415boss/EcommerceAnalytics.git` puis
   `git pull origin main` avant de commencer.
-- 09/10/2026 : livraison des Parties 4, 5 et 6 — `Analytics.scala` (Q4.1 KPI
-  marchands, Q4.2 cohortes de retention, bonus Q4.3 RFM et Q4.4 produits /
-  categories), `SparkOptimizations.scala` (Q5.1 cache, Q5.2 broadcast, bonus
-  Q5.3 mesure du gain), `MainApp.scala` (Q6.1 application principale, bonus
-  Q6.2 execution modulaire `ingestion|transformation|analytics|all`) ;
-  toutes les ecritures passent par `DataFrameWriterUtils` (CSV + Parquet,
-  convention Q6.1). `run-sbt.cmd compile` valide le 09/10/2026 sur les
-  12 fichiers Scala du projet (commit `d807337`, pousse sur `main`).
-- Heures travaillées : session du 09/10/2026 (lecture du depot, ecriture des
-  Parties 4 a 6, compilation) — heures exactes a confirmer par le membre
-  (obligatoire avant la remise).
-- Difficultés rencontrées : aucune difficulte bloquante sur le code ;
-  le premier `sbt compile` du poste dure environ 6 minutes (a prevoir) ;
-  pas de jeu de donnees sur ce clone (dossier `data/` non versionne) :
-  l'execution reelle (`run-sbt.cmd "run"`) reste a faire sur un poste
-  disposant des donnees.
+- 09/10/2026 : livraison des Parties 4, 5 et 6 (`Analytics.scala`,
+  `SparkOptimizations.scala`, `MainApp.scala`) ; `sbt compile` validé sur les
+  12 fichiers Scala (commit `d807337`). Exécution modulaire :
+  `run-sbt.cmd "run [ingestion|transformation|analytics|all]"`.
+- Heures travaillées : travail commencé en local le 09/10/2026 (lecture du
+  dépôt, Parties 4 à 6, compilation) — environ 2 h.
+- Difficultés rencontrées : aucune bloquante ; premier `sbt compile` ≈ 6 min
+  (téléchargement des dépendances) ; dossier `data/` non versionné sur ce
+  clone, exécution réelle à faire sur un poste qui a les données.
 
 ## Décisions techniques du groupe
 
